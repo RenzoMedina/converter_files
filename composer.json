@@ -1,6 +1,6 @@
 {
     "name": "renzomedina/convert",
-    "description": "demo",
+    "description": "A simple pdf to text converter PDF to XML",
     "type": "project",
     "license": "MIT",
     "autoload": {
