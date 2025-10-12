@@ -1,0 +1,23 @@
+{
+    "name": "renzomedina/convert",
+    "description": "demo",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Routes\\":"routes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RenzoMedina",
+            "email": "medinast30@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "smalot/pdfparser": "dev-master",
+        "flightphp/core": "dev-master"
+    }
+}

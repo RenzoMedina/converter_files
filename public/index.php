@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Document</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+<div class="parent">
+    <div class="header">
+    <h1>Convertidor PDF a XML</h1>
+    </div>
+    <div class="form-container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="file-input">
+                <span class="file-button">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17L19 16C19 15.4477 19.4477 15 20 15C20.5523 15 21 15.4477 21 16L21 17C21 19.2091 19.2091 21 17 21L7 21C4.79086 21 3 19.2091 3 17L3 16C3 15.4477 3.44771 15 4 15C4.55228 15 5 15.4477 5 16L5 17ZM7.29289 8.70711C6.90237 8.31658 6.90237 7.68342 7.29289 7.29289L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L16.7071 7.29289C17.0976 7.68342 17.0976 8.31658 16.7071 8.70711C16.3166 9.09763 15.6834 9.09763 15.2929 8.70711L13 6.41421L13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16L11 6.41421L8.70711 8.70711C8.31658 9.09763 7.68342 9.09763 7.29289 8.70711Z" fill="#687782"/>
+</svg>Agregar archivo
+                </span>
+                <input type="file" name="documentFile" id="document-file" accept=".pdf">
+            </div>
+            <button class="btn-submit">Convertir</button>
+        </form>
+    </div>
+    <div class="download-container">
+        <?php if (isset($_GET['success'])): ?>
+            <a href="/download" class="download">Descargar archivo</a>
+        <?php endif; ?>
+       
+    </div>
+</div>
+    <script>
+    document.getElementById('document-file').addEventListener('change', function() {
+    const fileName = this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
+    document.querySelector('.file-button').textContent = fileName;
+    })
+   setTimeout(()=>{
+        window.history.replaceState({}, document.title, window.location.pathname);
+    },9000)
+</script>
+</body>
+</html>
