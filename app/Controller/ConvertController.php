@@ -17,7 +17,7 @@ class ConvertController{
             }
             Flight::redirect('/?success');
         } else {
-            Flight::redirect('/');
+            Flight::redirect('/?error');
         }
     }
     public function download(){
@@ -33,7 +33,7 @@ class ConvertController{
             readfile($file);
             exit;
         } else {
-            Flight::redirect('/');
+            Flight::redirect('/?not-file');
         }
     }
 }

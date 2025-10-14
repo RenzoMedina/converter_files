@@ -9,7 +9,7 @@
 <body>
 <div class="parent">
     <div class="header">
-    <h1>Convertidor PDF a XML</h1>
+    <h1>Convertidor PDF a XML para Moodle</h1>
     </div>
     <div class="form-container">
         <form action="/upload" method="post" enctype="multipart/form-data">
@@ -30,15 +30,10 @@
         <?php endif; ?>
        
     </div>
+    <div class="footer">
+        <p>VRA - Gestión de aula <?php echo date("Y") ?></p>
+    </div>
 </div>
-    <script>
-    document.getElementById('document-file').addEventListener('change', function() {
-    const fileName = this.files[0] ? this.files[0].name : 'Ningún archivo seleccionado';
-    document.querySelector('.file-button').textContent = fileName;
-    })
-   setTimeout(()=>{
-        window.history.replaceState({}, document.title, window.location.pathname);
-    },9000)
-</script>
+<script src="public/app.js"></script>
 </body>
 </html>

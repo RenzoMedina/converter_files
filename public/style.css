@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font);
 }
 .parent {
     display: flex;
@@ -21,9 +22,9 @@
 .header {
     grid-column: span 3 / span 3;
     grid-column-start: 2;
-    font-family: var(--font);
     text-align: center;
     font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .form-container {
@@ -38,7 +39,8 @@
     grid-column-start: 2;
     grid-row-start: 4;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
+
 }
 .file-input{
     position: relative;
@@ -60,7 +62,6 @@
     border-radius: 10px;
     cursor: pointer;
     background: none;
-    font-family: var(--font);
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
@@ -79,12 +80,10 @@ form{
     background: rgb(1, 1, 39);
     color : white;
     cursor: pointer;
-    font-family: var(--font);
     font-size: 1.3rem;
     margin-top: 20px;
 }
 .download{
-    font-family: var(--font);
     font-size: 1.2rem;
     text-decoration: none;
     cursor: pointer;
@@ -94,6 +93,11 @@ form{
     color: rgb(105, 1, 1);
     font-weight: semi-bold;
     text-decoration: underline;
+}
+.footer{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, .5);
 }
 @media only screen and (max-width:600px){
    .header{
