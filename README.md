@@ -53,6 +53,9 @@ docker-compose up -d
 
 - ChatOps para notificar conversiones exitosas o fallidas
 
+## 🖼️ Demo
+![Imagen del proyecto](/public/assets/img/demo_project.png)
+
 ## Authors
 - Backend Developer & DevOps Jr
 - [@renzomedina](https://github.com/RenzoMedina)
