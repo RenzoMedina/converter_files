@@ -45,6 +45,7 @@
 .file-input{
     position: relative;
     display: inline-block;
+    min-width: fit-content;
 }
 .file-input input[type="file"] {
    position: absolute;
@@ -97,6 +98,12 @@ form{
     font-size: 1.2rem;
     text-decoration: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    svg{
+        margin-right: 5px;
+    }
     
 }
 .download:hover{
