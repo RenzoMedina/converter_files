@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice">
+    <name>
+      <text>P1</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa se detectó que el sistema pierde presión rápidamente debido a un mal 
+funcionamiento en el componente que almacena el aire comprimido. ¿Qué componente del 
+sistema neumático es responsable de almacenar el aire comprimido antes de su distribución?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el tanque de almacenamiento es el 
+componente fundamental para acumular y mantener una 
+reserva de aire comprimido, estabilizando la presión y 
+suministrando un caudal constante a la demanda del 
+sistema. Su correcto funcionamiento es crucial para evitar 
+fluctuaciones de presión que afectan la eficiencia y el 
+rendimiento de todo el circuito neumático. Se sugiere que 
+revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P2</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa necesita reemplazar su compresor por uno más eficiente para su línea de 
+producción continua. ¿Qué tipo de compresor es común en sistemas industriales que 
+requieren flujo continuo de aire?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor de pistón.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Compresor de tornillo.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que los compresores de tornillo son la opción 
+ideal para sistemas industriales que demandan un flujo 
+continuo y constante de aire, así como alta eficiencia en 
+operaciones prolongadas. Su diseño rotativo minimiza las 
+pulsaciones y el desgaste, lo que los hace adecuados para 
+líneas de producción ininterrumpidas que requieren un 
+suministro fiable de aire comprimido. Se sugiere que revises 
+los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor centrífugo.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor de diafragma.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor de paletas.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P3</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa la corrosión en los cilindros se atribuye a la presencia de humedad en el aire. 
+¿Qué elemento del sistema neumático elimina la humedad del aire comprimido?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Filtro deshidratador.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el filtro deshidratador, o secador de aire, es 
+esencial para eliminar el vapor de agua y la humedad 
+condensada del aire comprimido. Su función es crítica para 
+prevenir la corrosión y el óxido en los componentes 
+internos del sistema, como cilindros y válvulas, 
+prolongando así la vida útil del equipo y manteniendo la 
+calidad del aire necesaria para procesos sensibles. Se 
+sugiere que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula reguladora.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tuberías.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P4</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa implementó un protocolo de seguridad tras un accidente por sobrepresión. 
+¿Qué válvula se utiliza para detener el flujo de aire en caso de emergencia?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Válvula de alivio (seguridad).]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que la válvula de alivio o seguridad es un 
+dispositivo vital que protege el sistema neumático al liberar 
+automáticamente el aire comprimido cuando la presión 
+excede un límite preestablecido. Su función es esencial para 
+prevenir daños mayores en caso de sobrepresión 
+inesperada, actuando como un mecanismo de seguridad 
+para el equipo y el personal. Se sugiere que revises los 
+contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de retención.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula proporcional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P5</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa los cilindros neumáticos presentan un desgaste acelerado debido a la falta 
+de lubricación adecuada. ¿Qué componente del sistema neumático es esencial para reducir 
+la fricción en los actuadores?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el lubricador es el componente encargado de 
+inyectar una fina niebla de aceite en el aire comprimido que 
+fluye hacia los actuadores y herramientas neumáticas. Su 
+propósito es lubricar las superficies móviles internas, 
+reduciendo significativamente la fricción y el desgaste, lo 
+que prolonga la vida útil de los componentes y asegura un 
+funcionamiento suave y eficiente del sistema. Se sugiere 
+que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compresor.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P6</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa necesita reemplazar las válvulas defectuosas que controlan el movimiento de 
+sus cilindros de soldadura. ¿Qué tipo de válvula se utiliza para controlar la dirección del flujo 
+de aire en un cilindro de doble efecto?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de seguridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Válvula direccional (5/2 vías).]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que la válvula direccional, como la de 5/2 vías, es 
+indispensable para controlar el movimiento de los cilindros 
+de doble efecto. Permite direccionar el aire comprimido 
+alternadamente hacia las dos cámaras del cilindro 
+(extensión y retracción) y al mismo tiempo permitir el 
+escape del aire del lado opuesto, lo que posibilita el control 
+bidireccional preciso del actuador. Se sugiere que revises 
+los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula reguladora de presión.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de retención.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de secuencia.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P7</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué problema puede causar un filtro obstruido en un sistema neumático?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Aumento de la presión del sistema.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Bloqueo de válvulas y actuadores.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que un filtro obstruido o saturado pierde su 
+capacidad de retención, permitiendo que partículas sólidas, 
+suciedad y otros contaminantes pasen al sistema. Esto 
+puede provocar el bloqueo de los conductos internos y los 
+sellos de las válvulas y actuadores, resultando en un 
+funcionamiento errático, una reducción de la eficiencia y un 
+desgaste acelerado de los componentes. Se sugiere que 
+revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Reducción de la temperatura del aire.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Mayor eficiencia energética.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricación excesiva.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P8</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa planea automatizar su transportador de piezas con un sistema neumático. ¿Qué 
+tipo de actuador es adecuado para generar movimiento rotativo en un transportador 
+industrial?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Cilindro neumático.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Motor neumático.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que los motores neumáticos son actuadores 
+diseñados específicamente para convertir la energía del 
+aire comprimido en movimiento rotativo continuo. Son la 
+opción más adecuada para aplicaciones como 
+transportadores giratorios, donde se requiere un par 
+constante y velocidad ajustable para el desplazamiento de 
+piezas. Se sugiere que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula rotativa.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Actuador eléctrico.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Cilindro de impacto.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P9</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa los vástagos de los cilindros muestran signos de corrosión ¿Qué elemento 
+del sistema neumático previene la oxidación de componentes metálicos?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Filtro deshidratador.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el filtro deshidratador es crucial para eliminar 
+la humedad y el vapor de agua presentes en el aire 
+comprimido. Al reducir el contenido de agua, previene 
+directamente la oxidación y corrosión de las superficies 
+metálicas de los componentes del sistema, como los 
+vástagos de los cilindros, lo cual es fundamental para su 
+funcionamiento suave y la prolongación de su vida útil. Se 
+sugiere que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Regulador de presión.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tuberías.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de seguridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P10</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa los cilindros de la línea de ensamblaje se mueven demasiado rápido, 
+afectando la precisión. ¿Qué válvula se utiliza para ajustar la velocidad de un cilindro 
+neumático?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que la válvula reguladora de flujo es la encargada 
+de controlar la cantidad de aire que entra o sale de un 
+cilindro, permitiendo así ajustar la velocidad de su 
+movimiento. Esto es esencial para aplicaciones que 
+requieren precisión en el posicionamiento y movimientos 
+suaves, evitando impactos o desplazamientos bruscos que 
+puedan comprometer la calidad del trabajo. Se sugiere que 
+revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de presión.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de retención.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de secuencia.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P11</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa las válvulas se obstruyen frecuentemente por contaminantes en el aire. ¿Qué 
+componente del sistema neumático es responsable de eliminar partículas sólidas del aire 
+comprimido?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el filtro es el componente principal del 
+sistema de tratamiento de aire diseñado específicamente 
+para eliminar partículas sólidas, polvo, óxido y otras 
+impurezas presentes en el aire comprimido. Su función es 
+proteger los componentes sensibles del sistema, como las 
+válvulas, de la obstrucción y el desgaste, asegurando un 
+flujo de aire limpio y un funcionamiento fiable. Se sugiere 
+que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Regulador de presión.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P12</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa necesita actuadores precisos (±0.1 mm) para su nueva línea de empacado. 
+¿Qué tipo de cilindro neumático es ideal para aplicaciones que requieren alta precisión?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Cilindro de simple efecto.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Cilindro de doble efecto con guías lineales.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que para aplicaciones que exigen alta precisión 
+posicional y repetibilidad, como el empacado con 
+tolerancias mínimas, un cilindro de doble efecto acoplado a 
+guías lineales es la solución ideal. Las guías lineales evitan la 
+desviación lateral y la rotación del vástago, asegurando un 
+movimiento estrictamente lineal y una colocación exacta 
+del actuador. Se sugiere que revises los contenidos de la 
+semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Motor neumático.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Cilindro de impacto.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Actuador rotativo.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P13</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa una falla en el regulador de presión causó daños en las válvulas por 
+sobrepresión. ¿Qué válvula protege al sistema neumático contra sobrepresión?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Válvula de seguridad (alivio).]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que la válvula de seguridad (o alivio) es el 
+dispositivo diseñado para proteger el sistema neumático 
+contra presiones excesivas. Su función es liberar 
+automáticamente el aire cuando la presión supera un valor 
+preestablecido, evitando así daños graves en las válvulas, 
+tuberías y otros componentes, y garantizando la seguridad 
+operativa. Se sugiere que revises los contenidos de la 
+semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de retención.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula proporcional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P14</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué elemento del sistema neumático garantiza niveles estables de la presión de trabajo? 
+En una empresa los actuadores funcionan con fuerza inconsistente debido a variaciones de presión.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Regulador de presión.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el regulador de presión es el componente 
+encargado de mantener un nivel de presión de trabajo 
+constante y estable en el sistema neumático, 
+independientemente de las fluctuaciones en la presión de 
+entrada o en la demanda del sistema. Esto es crucial para 
+asegurar que los actuadores funcionen con una fuerza 
+consistente y predecible, evitando variaciones que afecten 
+la precisión y el rendimiento. Se sugiere que revises los 
+contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula direccional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P15</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa se detectaron fugas de aire en el sistema de aire comprimido afectando 
+diferentes componentes perdiendo precisión y fuerza. ¿Qué componente del sistema 
+neumático es esencial para garantizar un sellado hermético?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Racores o conectores.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que los racores o conectores son elementos 
+vitales en el sistema de distribución de aire, ya que su 
+función es asegurar uniones herméticas entre tuberías, 
+mangueras y componentes. Un sellado adecuado es 
+esencial para prevenir las fugas de aire, que resultan en 
+pérdida de presión, reducción de la eficiencia y un 
+funcionamiento inconsistente de los actuadores y 
+herramientas neumáticas. Se sugiere que revises los 
+contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de seguridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Regulador de presión.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P16</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una empresa necesita automatizar una secuencia de movimientos en su línea de ensamblaje. 
+¿Qué tipo de válvula se utiliza para controlar secuencias complejas en un sistema neumático?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de seguridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Válvula direccional (5/2 vías).]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que las válvulas direccionales, especialmente las 
+de 5/2 vías para cilindros de doble efecto, son 
+fundamentales para controlar la dirección del flujo de aire 
+y, por ende, el movimiento de los actuadores en una 
+secuencia programada. Su capacidad para conmutar el aire 
+de forma precisa permite la creación de automatizaciones 
+complejas y el control de movimientos coordinados en 
+líneas de ensamblaje. Se sugiere que revises los contenidos 
+de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de retención.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula proporcional.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P17</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué problema puede causar un regulador de presión con problemas de calibración por 
+encima del valor nominal necesario? 
+En una empresa los actuadores funcionan con fuerza excesiva, dañando las piezas.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Sobrepresión y desgaste prematuro.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que un regulador de presión mal calibrado que 
+permite una presión superior a la nominal puede causar 
+sobrepresión en el sistema. Esto somete a las válvulas y 
+actuadores a esfuerzos excesivos, lo que lleva a un desgaste 
+prematuro de los sellos, empaques y componentes 
+internos, reduciendo su vida útil y pudiendo causar fallos en 
+el funcionamiento o incluso daños permanentes en las 
+piezas. Se sugiere que revises los contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Reducción del consumo de aire.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Mayor eficiencia energética.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricación excesiva.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Bloqueo de válvulas.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>P18</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En una empresa el sobrecalentamiento del aire reduce la eficiencia del sistema. ¿Qué 
+componente del sistema neumático se debe revisar cuando ocurre este inconveniente?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text/>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>false</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <defaultgrade>0.5</defaultgrade>
+    <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Filtro.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Sistema de enfriamiento del compresor.]]></text>
+      <feedback format="html">
+        <text><![CDATA[Recuerda que el sistema de enfriamiento del compresor es 
+crucial para reducir la temperatura del aire comprimido 
+después de la compresión. El aire caliente contiene más 
+humedad y puede afectar negativamente la eficiencia del 
+sistema, la vida útil de los componentes y la calidad del aire. 
+Un problema en este sistema causaría sobrecalentamiento, 
+indicando la necesidad de revisión y mantenimiento para 
+optimizar el rendimiento. Se sugiere que revises los 
+contenidos de la semana.]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Lubricador.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Válvula de seguridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

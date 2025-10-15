@@ -15,14 +15,22 @@ class ConvertController{
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
-            $textXML = (new ConvertService())->transfor($path);
-            if (file_exists($path)) {
-                unlink($path);
+            //primera formato
+            $textXML = (new ConvertService())->transforNew($path);
+            if($textXML <= 0){
+                //segundo formato
+                $text = (new ConvertService())->transforNew($path);
+                Flight::redirect('/?success=1&total='.urlencode((string)$text));
             }
-            Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
+            else{
+                Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
+            }
         } else {
             Flight::redirect('/?error');
         }
+        if (file_exists($path)) {
+                unlink($path);
+            }
     }
     public function download(){
         $file = './files/archivo.xml';
@@ -40,4 +48,5 @@ class ConvertController{
             Flight::redirect('/?not-file');
         }
     }
+
 }
