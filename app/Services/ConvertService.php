@@ -37,7 +37,6 @@ class ConvertService{
                     'retroalimentacion' => trim($m[9])
                 ];
             }
-            //var_dump($preguntas);
 
             // Crear XML para Moodle
             $xml = new DOMDocument('1.0', 'UTF-8');
@@ -89,8 +88,8 @@ class ConvertService{
                 $single = $xml->createElement('single', 'true');
                 $question->appendChild($single);
                 
-                // Barajar respuestas
-                $shuffleanswers = $xml->createElement('shuffleanswers', 'true');
+                // No barajar respuestas
+                $shuffleanswers = $xml->createElement('shuffleanswers', 'false');
                 $question->appendChild($shuffleanswers);
                 
                 // Numerar respuestas
@@ -101,9 +100,9 @@ class ConvertService{
                 $defaultgrade = $xml->createElement('defaultgrade', '0.5');
                 $question->appendChild($defaultgrade);
 
-                // No barajar respuestas
-                $shuffleanswers = $xml->createElement('shuffleanswers', 'false');
-                $question->appendChild($shuffleanswers);
+                // No mostrar instrucción estándar
+                $showStandardInstruction = $xml->createElement('showstandardinstruction', '0');
+                $question->appendChild($showStandardInstruction);
 
                 // Agregar opciones
                 foreach($letraMap as $letra){
@@ -133,6 +132,6 @@ class ConvertService{
             }
 
             $xml->save( './files/archivo.xml');
-
+            return count($preguntas);    
     }
 }

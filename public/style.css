@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font);
 }
 .parent {
     display: flex;
@@ -21,9 +22,9 @@
 .header {
     grid-column: span 3 / span 3;
     grid-column-start: 2;
-    font-family: var(--font);
     text-align: center;
     font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .form-container {
@@ -38,11 +39,13 @@
     grid-column-start: 2;
     grid-row-start: 4;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
+
 }
 .file-input{
     position: relative;
     display: inline-block;
+    min-width: fit-content;
 }
 .file-input input[type="file"] {
    position: absolute;
@@ -60,7 +63,6 @@
     border-radius: 10px;
     cursor: pointer;
     background: none;
-    font-family: var(--font);
     font-size: 1.3rem;
     display: flex;
     flex-direction: column;
@@ -79,21 +81,62 @@ form{
     background: rgb(1, 1, 39);
     color : white;
     cursor: pointer;
-    font-family: var(--font);
     font-size: 1.3rem;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform .3s;
+    svg{
+        margin-right: 5px;
+    }
+
+}
+.btn-submit:hover{
+    background: rgba(1, 1, 39, 0.76);
 }
 .download{
-    font-family: var(--font);
     font-size: 1.2rem;
     text-decoration: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    svg{
+        margin-right: 5px;
+    }
     
 }
 .download:hover{
     color: rgb(105, 1, 1);
     font-weight: semi-bold;
     text-decoration: underline;
+}
+.footer{
+    position: fixed;
+    bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, .5);
+}
+#alert{
+    position: fixed;
+    top: 120px;
+    opacity: 0;
+    margin-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    width: 600px;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    z-index: 1000;
+    text-align: center;
+}
+#alert.active{
+    opacity: 1;
+    pointer-events: auto;
 }
 @media only screen and (max-width:600px){
    .header{
@@ -109,5 +152,10 @@ form{
         height: 40px;
        margin-bottom: 10px;
     }
+   }
+   #alert{
+    width: 350px;
+    top: 80px;
+    font-size: 1rem;
    }
 }
