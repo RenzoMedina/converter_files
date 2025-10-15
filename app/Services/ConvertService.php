@@ -132,6 +132,6 @@ class ConvertService{
             }
 
             $xml->save( './files/archivo.xml');
-            return "Total de preguntas: " . count($preguntas);    
+            return count($preguntas);    
     }
 }

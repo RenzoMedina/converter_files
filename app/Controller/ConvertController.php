@@ -8,18 +8,18 @@ use Flight;
 class ConvertController{
     public function convert(){
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
-        if($upload->getClientMediaType() != "application/pdf"){
+         if($upload->getClientMediaType() != "application/pdf"){
             Flight::redirect('/?error-file');
             die;
-        }
+        } 
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
-            (new ConvertService())->transfor($path);
+            $textXML = (new ConvertService())->transfor($path);
             if (file_exists($path)) {
                 unlink($path);
             }
-            Flight::redirect('/?success');
+            Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
         } else {
             Flight::redirect('/?error');
         }
