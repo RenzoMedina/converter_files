@@ -95,6 +95,7 @@ form{
     background: rgba(1, 1, 39, 0.76);
 }
 .download{
+    position: fixed;
     font-size: 1.2rem;
     text-decoration: none;
     cursor: pointer;
