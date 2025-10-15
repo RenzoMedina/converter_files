@@ -5,9 +5,8 @@
       <text>P1</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa se detectó que el sistema pierde presión rápidamente debido a un mal 
-funcionamiento en el componente que almacena el aire comprimido. ¿Qué componente del 
-sistema neumático es responsable de almacenar el aire comprimido antes de su distribución?]]></text>
+      <text><![CDATA[En una red corporativa, ¿qué principio se ve comprometido si un atacante accede a datos 
+confidenciales sin autorización?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -20,38 +19,33 @@ sistema neumático es responsable de almacenar el aire comprimido antes de su di
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Compresor.]]></text>
+      <text><![CDATA[Disponibilidad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <text><![CDATA[Confidencialidad.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el tanque de almacenamiento es el 
-componente fundamental para acumular y mantener una 
-reserva de aire comprimido, estabilizando la presión y 
-suministrando un caudal constante a la demanda del 
-sistema. Su correcto funcionamiento es crucial para evitar 
-fluctuaciones de presión que afectan la eficiencia y el 
-rendimiento de todo el circuito neumático. Se sugiere que 
-revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que la confidencialidad protege los datos del 
+acceso no autorizado, lo que garantiza su privacidad. Se 
+sugiere que revises los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[Redundancia.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[Integridad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Accesibilidad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -62,9 +56,8 @@ revises los contenidos de la semana.]]></text>
       <text>P2</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa necesita reemplazar su compresor por uno más eficiente para su línea de 
-producción continua. ¿Qué tipo de compresor es común en sistemas industriales que 
-requieren flujo continuo de aire?]]></text>
+      <text><![CDATA[¿Qué propiedad de la tríada de la ciberseguridad se ve comprometida cuando un atacante logra 
+acceder sin autorización a información sensible?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -77,38 +70,34 @@ requieren flujo continuo de aire?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Compresor de pistón.]]></text>
+      <text><![CDATA[Integridad.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Disponibilidad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Compresor de tornillo.]]></text>
+      <text><![CDATA[Confidencialidad.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que los compresores de tornillo son la opción 
-ideal para sistemas industriales que demandan un flujo 
-continuo y constante de aire, así como alta eficiencia en 
-operaciones prolongadas. Su diseño rotativo minimiza las 
-pulsaciones y el desgaste, lo que los hace adecuados para 
-líneas de producción ininterrumpidas que requieren un 
-suministro fiable de aire comprimido. Se sugiere que revises 
-los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que la confidencialidad se refiere a que sólo las 
+personas autorizadas pueden acceder a los datos. Si un 
+atacante accede, esta propiedad se ve comprometida. Se 
+sugiere que revises los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Compresor centrífugo.]]></text>
+      <text><![CDATA[Escalabilidad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Compresor de diafragma.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Compresor de paletas.]]></text>
+      <text><![CDATA[Resiliencia.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -119,8 +108,7 @@ los contenidos de la semana.]]></text>
       <text>P3</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa la corrosión en los cilindros se atribuye a la presencia de humedad en el aire. 
-¿Qué elemento del sistema neumático elimina la humedad del aire comprimido?]]></text>
+      <text><![CDATA[¿Cuál de las siguientes situaciones representa una falla de integridad de los datos?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -133,38 +121,34 @@ los contenidos de la semana.]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[La pérdida del acceso a un servicio por un ataque DDoS.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Filtro deshidratador.]]></text>
+      <text><![CDATA[La modificación no autorizada de un archivo.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el filtro deshidratador, o secador de aire, es 
-esencial para eliminar el vapor de agua y la humedad 
-condensada del aire comprimido. Su función es crítica para 
-prevenir la corrosión y el óxido en los componentes 
-internos del sistema, como cilindros y válvulas, 
-prolongando así la vida útil del equipo y manteniendo la 
-calidad del aire necesaria para procesos sensibles. Se 
-sugiere que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que la integridad se ve comprometida cuando los 
+datos son modificados sin autorización, lo que altera su 
+estado original. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula reguladora.]]></text>
+      <text><![CDATA[La exposición pública de una contraseña.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Tuberías.]]></text>
+      <text><![CDATA[La falta de conexión a una red.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <text><![CDATA[La utilización de una contraseña débil.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -175,8 +159,7 @@ sugiere que revises los contenidos de la semana.]]></text>
       <text>P4</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa implementó un protocolo de seguridad tras un accidente por sobrepresión. 
-¿Qué válvula se utiliza para detener el flujo de aire en caso de emergencia?]]></text>
+      <text><![CDATA[¿Qué técnica puede ayudar a mantener la confidencialidad de la información en tránsito?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -189,38 +172,33 @@ sugiere que revises los contenidos de la semana.]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <text><![CDATA[Uso de contraseñas débiles.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Configuración incorrecta de redes.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Válvula de alivio (seguridad).]]></text>
+      <text><![CDATA[Cifrado de datos.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que la válvula de alivio o seguridad es un 
-dispositivo vital que protege el sistema neumático al liberar 
-automáticamente el aire comprimido cuando la presión 
-excede un límite preestablecido. Su función es esencial para 
-prevenir daños mayores en caso de sobrepresión 
-inesperada, actuando como un mecanismo de seguridad 
-para el equipo y el personal. Se sugiere que revises los 
-contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el cifrado asegura que los datos sean ilegibles 
+para terceros no autorizados durante su transmisión. Se 
+sugiere que revises los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[Almacenamiento en dispositivos sin protección.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de retención.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Válvula proporcional.]]></text>
+      <text><![CDATA[Compartir información en texto plano.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -231,9 +209,8 @@ contenidos de la semana.]]></text>
       <text>P5</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa los cilindros neumáticos presentan un desgaste acelerado debido a la falta 
-de lubricación adecuada. ¿Qué componente del sistema neumático es esencial para reducir 
-la fricción en los actuadores?]]></text>
+      <text><![CDATA[¿Cuál de los siguientes es un ejemplo de aplicación del principio de disponibilidad en 
+telecomunicaciones?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -246,38 +223,34 @@ la fricción en los actuadores?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[Cifrado de datos.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Antivirus actualizado.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Firewall activo.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Sistema de respaldo automático.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el lubricador es el componente encargado de 
-inyectar una fina niebla de aceite en el aire comprimido que 
-fluye hacia los actuadores y herramientas neumáticas. Su 
-propósito es lubricar las superficies móviles internas, 
-reduciendo significativamente la fricción y el desgaste, lo 
-que prolonga la vida útil de los componentes y asegura un 
-funcionamiento suave y eficiente del sistema. Se sugiere 
-que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que un sistema de respaldo automático asegura la 
+disponibilidad continua de los datos ante fallas o 
+interrupciones. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Compresor.]]></text>
+      <text><![CDATA[Control biométrico de acceso.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -288,9 +261,8 @@ que revises los contenidos de la semana.]]></text>
       <text>P6</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa necesita reemplazar las válvulas defectuosas que controlan el movimiento de 
-sus cilindros de soldadura. ¿Qué tipo de válvula se utiliza para controlar la dirección del flujo 
-de aire en un cilindro de doble efecto?]]></text>
+      <text><![CDATA[Selecciona la afirmación que representa una buena práctica para garantizar la confidencialidad 
+de los datos:]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -303,38 +275,34 @@ de aire en un cilindro de doble efecto?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de seguridad.]]></text>
+      <text><![CDATA[Usar contraseñas débiles.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Compartir claves por correo.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Válvula direccional (5/2 vías).]]></text>
+      <text><![CDATA[Implementar cifrado de extremo a extremo.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que la válvula direccional, como la de 5/2 vías, es 
-indispensable para controlar el movimiento de los cilindros 
-de doble efecto. Permite direccionar el aire comprimido 
-alternadamente hacia las dos cámaras del cilindro 
-(extensión y retracción) y al mismo tiempo permitir el 
-escape del aire del lado opuesto, lo que posibilita el control 
-bidireccional preciso del actuador. Se sugiere que revises 
-los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el cifrado de extremo a extremo protege la 
+información desde el origen hasta el destino, lo que garantiza 
+su confidencialidad. Se sugiere que revises los contenidos de 
+la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula reguladora de presión.]]></text>
+      <text><![CDATA[Crear una red abierta.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de retención.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de secuencia.]]></text>
+      <text><![CDATA[Permitir acceso sin autenticación.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -345,7 +313,7 @@ los contenidos de la semana.]]></text>
       <text>P7</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[¿Qué problema puede causar un filtro obstruido en un sistema neumático?]]></text>
+      <text><![CDATA[¿Cuál de los siguientes representa una amenaza externa común en redes de telecomunicaciones?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -358,38 +326,34 @@ los contenidos de la semana.]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Aumento de la presión del sistema.]]></text>
+      <text><![CDATA[Actualizaciones del sistema.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Ingeniería social.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Copias de respaldo.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Bloqueo de válvulas y actuadores.]]></text>
+      <text><![CDATA[Ataques DDoS.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que un filtro obstruido o saturado pierde su 
-capacidad de retención, permitiendo que partículas sólidas, 
-suciedad y otros contaminantes pasen al sistema. Esto 
-puede provocar el bloqueo de los conductos internos y los 
-sellos de las válvulas y actuadores, resultando en un 
-funcionamiento errático, una reducción de la eficiencia y un 
-desgaste acelerado de los componentes. Se sugiere que 
-revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que los ataques DDoS son amenazas externas que 
+buscan saturar los servicios de red, lo que impide el acceso 
+legítimo a los recursos. Se sugiere que revises los contenidos 
+de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Reducción de la temperatura del aire.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Mayor eficiencia energética.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Lubricación excesiva.]]></text>
+      <text><![CDATA[Segmentación de red.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -400,9 +364,8 @@ revises los contenidos de la semana.]]></text>
       <text>P8</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa planea automatizar su transportador de piezas con un sistema neumático. ¿Qué 
-tipo de actuador es adecuado para generar movimiento rotativo en un transportador 
-industrial?]]></text>
+      <text><![CDATA[¿Qué tipo de vulnerabilidad se presenta cuando los sistemas de red no se actualizan 
+regularmente?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -415,37 +378,34 @@ industrial?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Cilindro neumático.]]></text>
+      <text><![CDATA[Configuración de firewall.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Control de acceso.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Motor neumático.]]></text>
+      <text><![CDATA[Exposición por software obsoleto.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que los motores neumáticos son actuadores 
-diseñados específicamente para convertir la energía del 
-aire comprimido en movimiento rotativo continuo. Son la 
-opción más adecuada para aplicaciones como 
-transportadores giratorios, donde se requiere un par 
-constante y velocidad ajustable para el desplazamiento de 
-piezas. Se sugiere que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el uso de software desactualizado expone a las 
+redes a vulnerabilidades conocidas que pueden ser 
+explotadas fácilmente. Se sugiere que revises los contenidos 
+de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula rotativa.]]></text>
+      <text><![CDATA[Respaldo automatizado.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Actuador eléctrico.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Cilindro de impacto.]]></text>
+      <text><![CDATA[Recolección de logs.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -456,8 +416,7 @@ piezas. Se sugiere que revises los contenidos de la semana.]]></text>
       <text>P9</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa los vástagos de los cilindros muestran signos de corrosión ¿Qué elemento 
-del sistema neumático previene la oxidación de componentes metálicos?]]></text>
+      <text><![CDATA[¿Cuál de los siguientes se considera una vulnerabilidad física en una infraestructura de red?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -470,38 +429,34 @@ del sistema neumático previene la oxidación de componentes metálicos?]]></tex
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Uso de contraseñas débiles.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Puertos abiertos sin control.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Filtro deshidratador.]]></text>
+      <text><![CDATA[Acceso sin restricción al cuarto de servidores.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el filtro deshidratador es crucial para eliminar 
-la humedad y el vapor de agua presentes en el aire 
-comprimido. Al reducir el contenido de agua, previene 
-directamente la oxidación y corrosión de las superficies 
-metálicas de los componentes del sistema, como los 
-vástagos de los cilindros, lo cual es fundamental para su 
-funcionamiento suave y la prolongación de su vida útil. Se 
-sugiere que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el acceso sin restricción a las salas técnicas 
+representa una vulnerabilidad física que puede comprometer 
+los equipos y la seguridad general. Se sugiere que revises los 
+contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Regulador de presión.]]></text>
+      <text><![CDATA[Fuga de datos en la nube.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Tuberías.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de seguridad.]]></text>
+      <text><![CDATA[Monitoreo continuo de tráfico.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -512,9 +467,7 @@ sugiere que revises los contenidos de la semana.]]></text>
       <text>P10</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa los cilindros de la línea de ensamblaje se mueven demasiado rápido, 
-afectando la precisión. ¿Qué válvula se utiliza para ajustar la velocidad de un cilindro 
-neumático?]]></text>
+      <text><![CDATA[Una amenaza interna puede ser causada por:]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -527,38 +480,34 @@ neumático?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[Ataques desde bots externos.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <text><![CDATA[Usuarios con permisos excesivos.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que la válvula reguladora de flujo es la encargada 
-de controlar la cantidad de aire que entra o sale de un 
-cilindro, permitiendo así ajustar la velocidad de su 
-movimiento. Esto es esencial para aplicaciones que 
-requieren precisión en el posicionamiento y movimientos 
-suaves, evitando impactos o desplazamientos bruscos que 
-puedan comprometer la calidad del trabajo. Se sugiere que 
-revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que cuando los usuarios tienen más permisos de 
+los necesarios, pueden representar una amenaza desde 
+dentro de la red. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de presión.]]></text>
+      <text><![CDATA[Aplicaciones autenticadas.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de retención.]]></text>
+      <text><![CDATA[Firewalls configurados.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de secuencia.]]></text>
+      <text><![CDATA[Protocolos de seguridad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -569,9 +518,8 @@ revises los contenidos de la semana.]]></text>
       <text>P11</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa las válvulas se obstruyen frecuentemente por contaminantes en el aire. ¿Qué 
-componente del sistema neumático es responsable de eliminar partículas sólidas del aire 
-comprimido?]]></text>
+      <text><![CDATA[¿Qué acción maliciosa busca interceptar información sin el conocimiento del emisor ni del 
+receptor?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -584,38 +532,34 @@ comprimido?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Ransomware.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[Sniffing.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el filtro es el componente principal del 
-sistema de tratamiento de aire diseñado específicamente 
-para eliminar partículas sólidas, polvo, óxido y otras 
-impurezas presentes en el aire comprimido. Su función es 
-proteger los componentes sensibles del sistema, como las 
-válvulas, de la obstrucción y el desgaste, asegurando un 
-flujo de aire limpio y un funcionamiento fiable. Se sugiere 
-que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el sniffing captura paquetes en tránsito para 
+acceder a información privada como contraseñas o datos 
+sensibles. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Regulador de presión.]]></text>
+      <text><![CDATA[Ingeniería social.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <text><![CDATA[Escaneo de puertos.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[Ataques de denegación de servicio.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -626,8 +570,8 @@ que revises los contenidos de la semana.]]></text>
       <text>P12</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa necesita actuadores precisos (±0.1 mm) para su nueva línea de empacado. 
-¿Qué tipo de cilindro neumático es ideal para aplicaciones que requieren alta precisión?]]></text>
+      <text><![CDATA[¿Cuál es una amenaza común que explota la interacción humana para obtener acceso no 
+autorizado?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -640,38 +584,34 @@ que revises los contenidos de la semana.]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Cilindro de simple efecto.]]></text>
+      <text><![CDATA[Sniffing.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Malware.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Cilindro de doble efecto con guías lineales.]]></text>
+      <text><![CDATA[Ingeniería social.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que para aplicaciones que exigen alta precisión 
-posicional y repetibilidad, como el empacado con 
-tolerancias mínimas, un cilindro de doble efecto acoplado a 
-guías lineales es la solución ideal. Las guías lineales evitan la 
-desviación lateral y la rotación del vástago, asegurando un 
-movimiento estrictamente lineal y una colocación exacta 
-del actuador. Se sugiere que revises los contenidos de la 
+        <text><![CDATA[Recuerda que la ingeniería social manipula a las personas 
+para que revelen información sensible o realicen acciones 
+inseguras. Se sugiere que revises los contenidos de la 
 semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Motor neumático.]]></text>
+      <text><![CDATA[Puertos mal configurados.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Cilindro de impacto.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Actuador rotativo.]]></text>
+      <text><![CDATA[Spoofing.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -682,8 +622,7 @@ semana.]]></text>
       <text>P13</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa una falla en el regulador de presión causó daños en las válvulas por 
-sobrepresión. ¿Qué válvula protege al sistema neumático contra sobrepresión?]]></text>
+      <text><![CDATA[¿Qué estrategia de protección permite segmentar el tráfico de red para aumentar la seguridad?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -696,38 +635,33 @@ sobrepresión. ¿Qué válvula protege al sistema neumático contra sobrepresió
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[Respaldo automático de datos.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <text><![CDATA[Aplicación de parches de seguridad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Válvula de seguridad (alivio).]]></text>
+      <text><![CDATA[Uso de VLAN.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que la válvula de seguridad (o alivio) es el 
-dispositivo diseñado para proteger el sistema neumático 
-contra presiones excesivas. Su función es liberar 
-automáticamente el aire cuando la presión supera un valor 
-preestablecido, evitando así daños graves en las válvulas, 
-tuberías y otros componentes, y garantizando la seguridad 
-operativa. Se sugiere que revises los contenidos de la 
-semana.]]></text>
+        <text><![CDATA[Recuerda que las VLAN permiten aislar segmentos de red, lo 
+que reduce la propagación de amenazas entre dispositivos. 
+Se sugiere que revises los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de retención.]]></text>
+      <text><![CDATA[Implementación de antivirus.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula proporcional.]]></text>
+      <text><![CDATA[Instalación de cableado estructurado.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -738,8 +672,8 @@ semana.]]></text>
       <text>P14</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[¿Qué elemento del sistema neumático garantiza niveles estables de la presión de trabajo? 
-En una empresa los actuadores funcionan con fuerza inconsistente debido a variaciones de presión.]]></text>
+      <text><![CDATA[¿Cuál de las siguientes es una técnica que permite detectar actividades sospechosas en la red en 
+tiempo real?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -752,39 +686,34 @@ En una empresa los actuadores funcionan con fuerza inconsistente debido a variac
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[VPN.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Regulador de presión.]]></text>
+      <text><![CDATA[IDS.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el regulador de presión es el componente 
-encargado de mantener un nivel de presión de trabajo 
-constante y estable en el sistema neumático, 
-independientemente de las fluctuaciones en la presión de 
-entrada o en la demanda del sistema. Esto es crucial para 
-asegurar que los actuadores funcionen con una fuerza 
-consistente y predecible, evitando variaciones que afecten 
-la precisión y el rendimiento. Se sugiere que revises los 
-contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que un sistema IDS (Intrusion Detection System) 
+identifica y reporta comportamientos inusuales o maliciosos 
+en la red. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[VLAN.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <text><![CDATA[NAT.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula direccional.]]></text>
+      <text><![CDATA[DHCP.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -795,9 +724,7 @@ contenidos de la semana.]]></text>
       <text>P15</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa se detectaron fugas de aire en el sistema de aire comprimido afectando 
-diferentes componentes perdiendo precisión y fuerza. ¿Qué componente del sistema 
-neumático es esencial para garantizar un sellado hermético?]]></text>
+      <text><![CDATA[¿Cuál es el principal objetivo del uso de firewalls en telecomunicaciones?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -810,39 +737,34 @@ neumático es esencial para garantizar un sellado hermético?]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[Almacenar archivos en la nube.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Racores o conectores.]]></text>
+      <text><![CDATA[Controlar el acceso al sistema.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que los racores o conectores son elementos 
-vitales en el sistema de distribución de aire, ya que su 
-función es asegurar uniones herméticas entre tuberías, 
-mangueras y componentes. Un sellado adecuado es 
-esencial para prevenir las fugas de aire, que resultan en 
-pérdida de presión, reducción de la eficiencia y un 
-funcionamiento inconsistente de los actuadores y 
-herramientas neumáticas. Se sugiere que revises los 
+        <text><![CDATA[Recuerda que  el firewall filtra el tráfico entrante y saliente 
+para permitir solo conexiones autorizadas, por ello actúa 
+como una barrera de protección. Se sugiere que revises los 
 contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Optimizar el rendimiento de las redes.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de seguridad.]]></text>
+      <text><![CDATA[Reducir el consumo de ancho de banda.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Regulador de presión.]]></text>
+      <text><![CDATA[Automatizar las tareas del usuario.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -853,8 +775,7 @@ contenidos de la semana.]]></text>
       <text>P16</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[Una empresa necesita automatizar una secuencia de movimientos en su línea de ensamblaje. 
-¿Qué tipo de válvula se utiliza para controlar secuencias complejas en un sistema neumático?]]></text>
+      <text><![CDATA[¿Qué estrategia contribuye a la resiliencia operativa ante una interrupción del servicio de red?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -867,39 +788,34 @@ contenidos de la semana.]]></text>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de seguridad.]]></text>
+      <text><![CDATA[Backup físico mensual.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Autenticación por token.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Válvula direccional (5/2 vías).]]></text>
+      <text><![CDATA[Plan de recuperación ante desastres.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que las válvulas direccionales, especialmente las 
-de 5/2 vías para cilindros de doble efecto, son 
-fundamentales para controlar la dirección del flujo de aire 
-y, por ende, el movimiento de los actuadores en una 
-secuencia programada. Su capacidad para conmutar el aire 
-de forma precisa permite la creación de automatizaciones 
-complejas y el control de movimientos coordinados en 
-líneas de ensamblaje. Se sugiere que revises los contenidos 
-de la semana.]]></text>
+        <text><![CDATA[Recuerda que el plan de recuperación ante desastres permite 
+restablecer la operatividad de los servicios de 
+telecomunicaciones tras un incidente. Se sugiere que revises 
+los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula reguladora de flujo.]]></text>
+      <text><![CDATA[Revisión de logs.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de retención.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Válvula proporcional.]]></text>
+      <text><![CDATA[Escaneo de puertos.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -910,9 +826,8 @@ de la semana.]]></text>
       <text>P17</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[¿Qué problema puede causar un regulador de presión con problemas de calibración por 
-encima del valor nominal necesario? 
-En una empresa los actuadores funcionan con fuerza excesiva, dañando las piezas.]]></text>
+      <text><![CDATA[¿Cuál de las siguientes medidas protege la confidencialidad de la información durante su 
+transmisión?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -924,39 +839,35 @@ En una empresa los actuadores funcionan con fuerza excesiva, dañando las piezas
     <answernumbering>abc</answernumbering>
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Segmentación de red.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Uso de proxies.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Sobrepresión y desgaste prematuro.]]></text>
+      <text><![CDATA[Cifrado de datos.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que un regulador de presión mal calibrado que 
-permite una presión superior a la nominal puede causar 
-sobrepresión en el sistema. Esto somete a las válvulas y 
-actuadores a esfuerzos excesivos, lo que lleva a un desgaste 
-prematuro de los sellos, empaques y componentes 
-internos, reduciendo su vida útil y pudiendo causar fallos en 
-el funcionamiento o incluso daños permanentes en las 
-piezas. Se sugiere que revises los contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que el cifrado codifica los datos para evitar que 
+sean leídos por terceros no autorizados durante su 
+transmisión. Se sugiere que revises los contenidos de la 
+semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Reducción del consumo de aire.]]></text>
+      <text><![CDATA[Reemplazo de hardware.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Mayor eficiencia energética.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Lubricación excesiva.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Bloqueo de válvulas.]]></text>
+      <text><![CDATA[Mantenimiento físico preventivo.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
@@ -967,8 +878,7 @@ piezas. Se sugiere que revises los contenidos de la semana.]]></text>
       <text>P18</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[En una empresa el sobrecalentamiento del aire reduce la eficiencia del sistema. ¿Qué 
-componente del sistema neumático se debe revisar cuando ocurre este inconveniente?]]></text>
+      <text><![CDATA[¿Qué contribuye a la resiliencia de la infraestructura tecnológica?]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text/>
@@ -981,39 +891,33 @@ componente del sistema neumático se debe revisar cuando ocurre este inconvenien
     <defaultgrade>0.5</defaultgrade>
     <showstandardinstruction>0</showstandardinstruction>
     <answer fraction="0" format="html">
-      <text><![CDATA[Filtro.]]></text>
+      <text><![CDATA[Permitir acceso abierto a todas las redes.]]></text>
+      <feedback format="html">
+        <text/>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[Deshabilitar la autenticación multi factor.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="100" format="html">
-      <text><![CDATA[Sistema de enfriamiento del compresor.]]></text>
+      <text><![CDATA[Actualizar regularmente los dispositivos de red.]]></text>
       <feedback format="html">
-        <text><![CDATA[Recuerda que el sistema de enfriamiento del compresor es 
-crucial para reducir la temperatura del aire comprimido 
-después de la compresión. El aire caliente contiene más 
-humedad y puede afectar negativamente la eficiencia del 
-sistema, la vida útil de los componentes y la calidad del aire. 
-Un problema en este sistema causaría sobrecalentamiento, 
-indicando la necesidad de revisión y mantenimiento para 
-optimizar el rendimiento. Se sugiere que revises los 
-contenidos de la semana.]]></text>
+        <text><![CDATA[Recuerda que la actualización constante permite corregir 
+vulnerabilidades y reducir el riesgo de ataques. Se sugiere 
+que revises los contenidos de la semana.]]></text>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Lubricador.]]></text>
+      <text><![CDATA[Omitir el monitoreo de seguridad.]]></text>
       <feedback format="html">
         <text/>
       </feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[Válvula de seguridad.]]></text>
-      <feedback format="html">
-        <text/>
-      </feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[Tanque de almacenamiento.]]></text>
+      <text><![CDATA[Instalar dispositivos sin pruebas previas.]]></text>
       <feedback format="html">
         <text/>
       </feedback>

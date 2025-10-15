@@ -19,7 +19,7 @@ class ConvertController{
             $textXML = (new ConvertService())->transforNew($path);
             if($textXML <= 0){
                 //segundo formato
-                $text = (new ConvertService())->transforNew($path);
+                $text = (new ConvertService())->transforOld($path);
                 Flight::redirect('/?success=1&total='.urlencode((string)$text));
             }
             else{
