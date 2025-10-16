@@ -102,6 +102,7 @@ form{
     display: flex;
     align-items: center;
     color: inherit;
+    margin-left: -91px;
     svg{
         margin-right: 5px;
     }
