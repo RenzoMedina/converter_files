@@ -15,6 +15,7 @@ class ConvertController{
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
+            
             //primera formato
             $textXML = (new ConvertService())->transforNew($path);
             if($textXML <= 0){

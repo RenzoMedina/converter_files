@@ -18,7 +18,7 @@ class ConvertService{
                     . 'c\)\s*(.*?)\n'
                     . 'd\)\s*(.*?)\n'
                     . 'e\)\s*(.*?)\n'
-                    .'.*?Respuesta correcta\s*([A-E])\s*'
+                    .'.*?Respuesta correcta\s*([aA-eE])\s*'
                     .'Retroalimentación:\s*(.*?)(?=[0-9]|$)/s';
             preg_match_all($pattern, $text, $match, PREG_SET_ORDER);
 
@@ -51,18 +51,18 @@ class ConvertService{
         $text = preg_replace('/^(?:[A-ZÁÉÍÓÚÜÑ0-9\s\.\-]+?\n){1,3}/', '', $text);
         
         $pattern = '/^\s*(\d+)\.\s*'
-                    .'(.*?) '                                     # Pregunta completa
-                    .'\s+'                                      # Espacios o saltos
+                    .'(.*?) '                                     
+                    .'\s+'                                      
                     . 'a\)\s*(.*?)\n'
                     . 'b\)\s*(.*?)\n'
                     . 'c\)\s*(.*?)\n'
                     . 'd\)\s*(.*?)\n'
-                    . 'e\)\s*(.*?)\n'                         # Alternativa E
-                    .'.*?Respuesta\s*correcta\s*'                # Sección de respuesta correcta
-                    .'Retroalimentación\s*'                      # Encabezado de retroalimentación
-                    .'([A-E])'
-                    .'\s*'                                # Letra correcta
-                    .'((?:(?!\n\s*\d+\.\s).)*)'                                     # Texto de retroalimentación                            # Hasta el siguiente bloque o final
+                    . 'e\)\s*(.*?)\n'                         
+                    .'.*?Respuesta\s*correcta\s*'                
+                    .'Retroalimentación\s*'                     
+                    .'([aA-eE])'
+                    .'\s*'                               
+                    .'((?:(?!\n\s*\d+\.\s).)*)'                      
                     .'/smx';
 
             preg_match_all($pattern, $text, $matches, PREG_SET_ORDER);
@@ -86,4 +86,5 @@ class ConvertService{
             }
        return (new ConvertUtils())->multiChoices($preguntas);
     }
+
 }
