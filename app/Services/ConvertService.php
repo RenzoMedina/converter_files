@@ -19,11 +19,20 @@ class ConvertService{
                     . 'd\)\s*(.*?)\n'
                     . 'e\)\s*(.*?)\n'
                     .'.*?Respuesta correcta\s*([aA-eE])\s*'
-                    .'Retroalimentación:\s*(.*?)(?=[0-9]|$)/s';
+                    .'Retroalimentación:\s*(.*?)(?=N° de pregunta:|$)/s';
             preg_match_all($pattern, $text, $match, PREG_SET_ORDER);
-
+        
             $preguntas =[];
             foreach($match as $m){
+                
+                $retroalimentacionLimpia = trim($m[9]);
+                if(preg_match('/(.*?semana\.)/s', $retroalimentacionLimpia, $retroMatch)) {
+                    $retroalimentacionLimpia = trim($retroMatch[1]);
+                } else {
+                    $retroalimentacionLimpia = preg_replace('/\n\s*\d+\s+.*$/s', '', $retroalimentacionLimpia);
+                }
+                $retroalimentacionLimpia = preg_replace('/\s+/', ' ', $retroalimentacionLimpia);
+                
                 $preguntas[] = [
                     'numero' => $m[1],
                     'pregunta' => trim($m[2]),
@@ -35,10 +44,9 @@ class ConvertService{
                         'e' => trim($m[7]),
                     ],
                     'respuesta' => strtolower(trim($m[8])), 
-                    'retroalimentacion' => trim($m[9])
+                    'retroalimentacion' =>$retroalimentacionLimpia
                 ];
             }
-                
          return (new ConvertUtils())->multiChoices($preguntas);       
     }
 
