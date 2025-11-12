@@ -99,8 +99,7 @@ class ConvertUtils{
                 
                 $quiz->appendChild($question);
             }
-
-            $xml->save( './files/archivo.xml');
+            $xml->save( './files/archivo_'.date('m_d_His').'.xml');
             return count($preguntas); 
     }
 }

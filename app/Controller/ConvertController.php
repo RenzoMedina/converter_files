@@ -34,7 +34,8 @@ class ConvertController{
             }
     }
     public function download(){
-        $file = './files/archivo.xml';
+        $files = glob('./files/archivo_*.xml');
+        $file = $files[0];
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -44,6 +45,7 @@ class ConvertController{
             header('Pragma: public');
             header('Content-Length: ' . filesize($file));
             readfile($file);
+            unlink($file);
             exit;
         } else {
             Flight::redirect('/?not-file');
