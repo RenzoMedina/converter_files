@@ -29,3 +29,8 @@ if (url.has('success')) {
 if(url.has('error-file')){
     showAlert("Solo aceptamos archivos PDF por ahora. ¡Gracias!", 7000,"rgba(214, 38, 7, 1)", "rgba(245, 6, 6, 0.17)");
 }
+const loader = document.getElementById("loader");
+document.getElementById('formulario').addEventListener('submit', function(e) {
+    loader.style.display = "flex";
+})
+
