@@ -12,7 +12,7 @@
     <h1>Convertidor PDF a XML para Moodle</h1>
     </div>
     <div class="form-container">
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form action="/upload" method="post" enctype="multipart/form-data" id="formulario">
             <div class="file-input">
                 <span class="file-button">
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +28,13 @@
 Convertir</button>
         </form>
     </div>
+    
+    <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+    <p>Procesando archivo, por favor espera...</p>
+    </div>
+
+
     <div class="download-container">
         <?php if (isset($_GET['success'])): ?>
             <a href="/download" class="download"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

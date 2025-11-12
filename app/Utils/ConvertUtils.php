@@ -6,8 +6,15 @@ use DOMDocument;
 
 class ConvertUtils{
 
-    public function multiChoices($preguntas){
-         // Crear XML para Moodle
+    public function multiChoices($preguntas, $nameFile = null){
+            // Eliminar archivos antiguos
+            $oldFiles = glob('./files/archivo_*.xml');
+            foreach($oldFiles as $oldFile){
+                if (file_exists($oldFile)) {
+                    unlink($oldFile);
+                }
+            }
+            // Crear XML para Moodle
             $xml = new DOMDocument('1.0', 'UTF-8');
             $xml->formatOutput = true;
 
@@ -99,7 +106,10 @@ class ConvertUtils{
                 
                 $quiz->appendChild($question);
             }
-            $xml->save( './files/archivo_'.date('m_d_His').'.xml');
+            if(!$nameFile){
+                $nameFile = './files/archivo_'.date('m_d_His').'.xml';
+            }
+            $xml->save($nameFile);
             return count($preguntas); 
     }
 }

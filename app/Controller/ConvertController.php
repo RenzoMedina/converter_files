@@ -35,6 +35,10 @@ class ConvertController{
     }
     public function download(){
         $files = glob('./files/archivo_*.xml');
+        usort($files, function($a, $b) {
+            return filemtime($b) - filemtime($a);
+        });
+
         $file = $files[0];
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
@@ -45,7 +49,6 @@ class ConvertController{
             header('Pragma: public');
             header('Content-Length: ' . filesize($file));
             readfile($file);
-            unlink($file);
             exit;
         } else {
             Flight::redirect('/?not-file');
