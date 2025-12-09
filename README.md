@@ -11,7 +11,7 @@ Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle
 - Contenedor Docker optimizado para entornos reproducibles
 - Supervisión de procesos con `supervisord`
 - Listo para integración con pipelines CI/CD y monitoreo
-- Estilos personalizados con CSS
+- Estilos personalizados con CSS y TailwindCSS
 
 ## 📁 Estructura del proyecto
 
