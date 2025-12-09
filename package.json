@@ -1,0 +1,20 @@
+{
+  "name": "convert",
+  "version": "1.0.0",
+  "description": "Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle. Diseñado para integrarse fácilmente en flujos CI/CD, con despliegue reproducible en Docker, monitoreo con supervisord",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i public/assets/css/input.css -o public/assets/css/style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenzoMedina/converter_files/issues"
+  },
+  "homepage": "https://github.com/RenzoMedina/converter_files#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
+  }
+}

@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-ExtraBold.ttf') format('truetype');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Nunito';
+        src: url('../fonts/Nunito-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+@layer components{
+     .alert-error {
+        background-color: #FEF2F2;
+        border-color: #FECACA;
+        color: #991B1B;
+    }
+    
+    .alert-success {
+        background-color: #F0FDF4;
+        border-color: #BBF7D0;
+        color: #166534;
+    }
+     .icon-error {
+        color: #DC2626;
+    }
+    
+    .icon-success {
+        color: #16A34A;
+    }
+}

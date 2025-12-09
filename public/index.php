@@ -4,50 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Converter Document</title>
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/assets/css/style.css">
 </head>
 <body>
-<div class="parent">
-    <div class="header">
-    <h1>Convertidor PDF a XML para Moodle</h1>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12">    
+    <div class="max-w-4xl mx-auto px-6 py-8">
+        <div class="">
+            <h1 class="text-4xl font-extrabold text-gray-900">Convertidor PDF a XML para Moodle</h1>
+            <p class="text-gray-600 mt-2">Convierta fácilmente sus documentos PDF a formato XML.</p>
+        </div>
     </div>
-    <div class="form-container">
-        <form action="/upload" method="post" enctype="multipart/form-data" id="formulario">
-            <div class="file-input">
-                <span class="file-button">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17L19 16C19 15.4477 19.4477 15 20 15C20.5523 15 21 15.4477 21 16L21 17C21 19.2091 19.2091 21 17 21L7 21C4.79086 21 3 19.2091 3 17L3 16C3 15.4477 3.44771 15 4 15C4.55228 15 5 15.4477 5 16L5 17ZM7.29289 8.70711C6.90237 8.31658 6.90237 7.68342 7.29289 7.29289L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L16.7071 7.29289C17.0976 7.68342 17.0976 8.31658 16.7071 8.70711C16.3166 9.09763 15.6834 9.09763 15.2929 8.70711L13 6.41421L13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16L11 6.41421L8.70711 8.70711C8.31658 9.09763 7.68342 9.09763 7.29289 8.70711Z" fill="#687782"/>
-</svg>Agregar archivo
-                </span>
-                <input type="file" name="documentFile" id="document-file" accept=".pdf" required>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="p-8">
+                    <form action="/upload" method="post" enctype="multipart/form-data" id="formulario">
+                    <div id="drop-zone" class="relative border-2 border-dashed border-gray-300 rounded-xl transition-all duration-200 p-8 md:p-12 text-center cursor-pointer hover:border-primary hover:bg-blue-50">
+                    <div id="upload-content" class="flex flex-col items-center justify-center gap-4 pointer-events-none">
+                        <div class="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 font-bold text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                            </svg>
+                        </div>
+                        <p class="text-xl font-semibold text-gray-900">
+                            Arrastra y suelta tu PDF aquí <br> 
+                            <span class="text-gray-600 font-normal">o haz clic para explorar tus archivos</span>
+                        </p>
+                    </div>
+
+                    <div id="file-selected-content" class="hidden flex-col items-center justify-center gap-4 pointer-events-none">
+                        <div class="bg-white p-4 rounded-full shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 text-primary">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                            </svg>
+
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-600 mb-1">Archivo seleccionado:</p>
+                            <p id="file-name" class="text-lg font-semibold text-gray-900"></p>
+                            <p id="file-size" class="text-sm text-gray-500 mt-1"></p>
+                        </div>
+                        <button type="button" id="btn-change" class="mt-2 text-primary hover:text-blue-700 font-medium text-sm pointer-events-auto">
+                            Cambiar archivo
+                        </button>
+                    </div>
+                    
+                    <input type="file" name="documentFile" id="document-file" accept=".pdf" required 
+                           class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                </div>
                 
+                    <div class="mt-6 flex gap-4 justify-center flex-wrap">
+                        <button type="submit" id="btn-convert" class="hidden inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:shadow-lg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 3C4.55228 3 5 3.44772 5 4V6.34298C6.64938 4.30446 9.17168 3 12 3C16.5903 3 20.3767 6.43564 20.9304 10.8763C20.9988 11.4243 20.6099 11.924 20.0618 11.9923C19.5138 12.0607 19.0141 11.6718 18.9458 11.1237C18.5153 7.67174 15.5689 5 12 5C9.62231 5 7.51998 6.18566 6.25442 8H9C9.55228 8 10 8.44772 10 9C10 9.55228 9.55228 10 9 10H4C3.44772 10 3 9.55228 3 9V4C3 3.44772 3.44772 3 4 3ZM3.93815 12.0077C4.48619 11.9393 4.98587 12.3282 5.05421 12.8763C5.48467 16.3283 8.43109 19 12 19C14.3777 19 16.48 17.8143 17.7456 16H15C14.4477 16 14 15.5523 14 15C14 14.4477 14.4477 14 15 14H20C20.5523 14 21 14.4477 21 15V20C21 20.5523 20.5523 21 20 21C19.4477 21 19 20.5523 19 20V17.657C17.3506 19.6955 14.8283 21 12 21C7.40967 21 3.62332 17.5644 3.06958 13.1237C3.00124 12.5757 3.39011 12.076 3.93815 12.0077Z" fill="white"/>
+                        </svg>
+                            Convertir a XML
+                        </button>
+            
+                        <button type="button" id="btn-reset" class="hidden inline-flex items-center gap-2 bg-white text-red-600 px-8 py-3 rounded-lg font-semibold border-2 border-red-600 transition-all duration-200 hover:bg-red-600 hover:text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            Limpiar
+                        </button>
+                    </div>
+                </form>
+                <?php if (isset($_GET['success'])): ?>
+                    <div class="max-w-4xl mx-auto px-6 mt-8">
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl shadow-xl p-8 text-center border-2 border-green-200">
+                            <div class="inline-flex items-center justify-center bg-white p-4 rounded-full shadow-lg mb-4">
+                                <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Conversión exitosa!</h3>
+                            <p class="text-gray-600 mb-6">Tu archivo XML ha sido generado correctamente</p>
+                            <a href="/download" class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-100 hover:bg-blue-600 hover:shadow-2xl">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17L19 16C19 15.4477 19.4477 15 20 15C20.5523 15 21 15.4477 21 16L21 17C21 19.2091 19.2091 21 17 21L7 21C4.79086 21 3 19.2091 3 17L3 16C3 15.4477 3.44771 15 4 15C4.55228 15 5 15.4477 5 16L5 17ZM7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858L11 4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4L13 13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929Z" fill="white"/>
+                                </svg>
+                                Descargar archivo XML
+                            </a>
+                        </div>
+                    </div>
+            <?php endif; ?>
             </div>
-            <button class="btn-submit"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4 3C4.55228 3 5 3.44772 5 4V6.34298C6.64938 4.30446 9.17168 3 12 3C16.5903 3 20.3767 6.43564 20.9304 10.8763C20.9988 11.4243 20.6099 11.924 20.0618 11.9923C19.5138 12.0607 19.0141 11.6718 18.9458 11.1237C18.5153 7.67174 15.5689 5 12 5C9.62231 5 7.51998 6.18566 6.25442 8H9C9.55228 8 10 8.44772 10 9C10 9.55228 9.55228 10 9 10H4C3.44772 10 3 9.55228 3 9V4C3 3.44772 3.44772 3 4 3ZM3.93815 12.0077C4.48619 11.9393 4.98587 12.3282 5.05421 12.8763C5.48467 16.3283 8.43109 19 12 19C14.3777 19 16.48 17.8143 17.7456 16H15C14.4477 16 14 15.5523 14 15C14 14.4477 14.4477 14 15 14H20C20.5523 14 21 14.4477 21 15V20C21 20.5523 20.5523 21 20 21C19.4477 21 19 20.5523 19 20V17.657C17.3506 19.6955 14.8283 21 12 21C7.40967 21 3.62332 17.5644 3.06958 13.1237C3.00124 12.5757 3.39011 12.076 3.93815 12.0077Z" fill="white"/>
-</svg>
-Convertir</button>
-        </form>
-    </div>
-    
-    <div id="loader" class="loader-overlay">
-    <div class="spinner"></div>
-    <p>Procesando archivo, por favor espera...</p>
+        </div>
     </div>
 
+    <div class="mt-12 grid md:grid-cols-3 gap-2">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-primary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+            </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Carga fácil</h3>
+            <p class="text-gray-600 text-sm mt-2">
+              Arrastra y suelta o haz clic para cargar tus archivos PDF
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-primary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Conversión rápida</h3>
+            <p class="text-gray-600 text-sm mt-2">
+             Conversión rápida y confiable de PDF a XML
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-primary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900">Descargar XML</h3>
+            <p class="text-gray-600 text-sm mt-2">
+              Descarga tu archivo XML convertido al instante
+            </p>
+          </div>
+    </div>
 
-    <div class="download-container">
-        <?php if (isset($_GET['success'])): ?>
-            <a href="/download" class="download"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17L19 16C19 15.4477 19.4477 15 20 15C20.5523 15 21 15.4477 21 16L21 17C21 19.2091 19.2091 21 17 21L7 21C4.79086 21 3 19.2091 3 17L3 16C3 15.4477 3.44771 15 4 15C4.55228 15 5 15.4477 5 16L5 17ZM7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858L11 4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4L13 13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929Z" fill="#0D0314"/>
-</svg> Descargar archivo</a>
-        <?php endif; ?>
-       
+    <div class="max-w-4xl mx-auto px-6 py-8 mt-12 text-center">
+        <p class="text-2xl font-bold">DRA - Gestión de aula <?php echo date("Y") ?></p>
     </div>
-    <div class="footer">
-        <p>VRA - Gestión de aula <?php echo date("Y") ?></p>
-    </div>
-    <div id="alert"></div>
 </div>
+
+<!-- Alert-->
+<div id="alert" class="fixed top-4 right-4 max-w-md p-4 rounded-lg shadow-lg transform translate-x-[120%] transition-all duration-500 ease-in-out z-50">
+    <div class="flex items-start gap-3">
+        <div id="alert-icon" class="flex-shrink-0"></div>
+        <div id="alert-message" class="flex-1 text-sm font-medium"></div>
+        <button onclick="closeAlert()" class="flex-shrink-0 text-current opacity-70 hover:opacity-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Loader -->
+<div id="loader" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center backdrop-blur-sm">
+    <div class="bg-white rounded-2xl p-8 shadow-2xl flex flex-col items-center gap-6 max-w-sm mx-4">
+        <!-- Spinner-->
+        <div class="relative">
+            <div class="animate-spin rounded-full h-20 w-20 border-4 border-gray-200 border-t-primary"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
+                </svg>
+            </div>
+        </div>
+        
+ 
+        <div class="text-center">
+            <p class="text-gray-900 font-bold text-lg mb-2">Procesando tu PDF...</p>
+            <p class="text-gray-600 text-sm">Esto puede tomar unos segundos</p>
+        </div>
+        
+        
+        <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+            <div class="bg-primary h-full rounded-full animate-pulse" style="width: 70%;"></div>
+        </div>
+    </div>
+</div>
+
 <script src="public/app.js"></script>
 </body>
 </html>
