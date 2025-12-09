@@ -32,7 +32,8 @@ Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle
 - Docker & Docker Compose  
 - PHP >= 8.0  
 - Composer
-
+- NodeJS
+- TailwindCSS
 
 
 ## 🐳 Despliegue con Docker
