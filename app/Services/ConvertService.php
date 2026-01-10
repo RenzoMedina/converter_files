@@ -253,10 +253,10 @@ class ConvertService{
     private function procesarEssay($bloque) {
         // Patrón para essay (sin alternativas)
         $pattern = '/N° de pregunta:\s*(\d+)\s+'
-            . '(.*?)'  // Pregunta
+            . '(.*?)'
             . '\s*Escribe aquí tu respuesta\s*'
             . '(?:Retroalimentación:\s*(.*?))?$'
-            . '/s';
+            . '(?=\s*$)/s';
         
         if(preg_match($pattern, $bloque, $m)) {
             $retroalimentacion = isset($m[3]) ? trim($m[3]) : '';
@@ -281,13 +281,38 @@ class ConvertService{
         // Limpiar hasta "semana."
         if(preg_match('/(.*?semana\.)/s', $retroalimentacionLimpia, $retroMatch)) {
             $retroalimentacionLimpia = trim($retroMatch[1]);
-        } else {
-            // Remover números de página al final
-            $retroalimentacionLimpia = preg_replace('/\n\s*\d+\s*$/s', '', $retroalimentacionLimpia);
-            $retroalimentacionLimpia = preg_replace('/\n\s*Modernización.*$/s', '', $retroalimentacionLimpia);
+            return trim(preg_replace('/\s+/', ' ', $retroMatch[1]));
         }
+        // 2. Si no termina en "semana.", dividir por líneas y limpiar
+        $lineas = explode("\n", $retroalimentacionLimpia);
+        $lineasValidas = [];
         
-        // Normalizar espacios
+        foreach($lineas as $linea) {
+            $linea = trim($linea);
+            
+            // Saltar líneas vacías
+            if(empty($linea)) {
+                continue;
+            }
+            
+            // Detener si encuentra solo números (número de página)
+            if(preg_match('/^\d+$/', $linea)) {
+                break;
+            }
+            
+            // Detener si encuentra "Indicador" o "N° de pregunta"
+            if(preg_match('/^(Indicador|N°\s*de\s*pregunta)/i', $linea)) {
+                break;
+            }
+            
+            // Agregar línea válida
+            $lineasValidas[] = $linea;
+        }
+    
+        // Unir las líneas válidas
+        $retroalimentacionLimpia = implode(' ', $lineasValidas);
+        
+        // Normalizar espacios múltiples
         $retroalimentacionLimpia = preg_replace('/\s+/', ' ', $retroalimentacionLimpia);
         
         return trim($retroalimentacionLimpia);
