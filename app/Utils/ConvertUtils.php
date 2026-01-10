@@ -6,7 +6,7 @@ use DOMDocument;
 
 class ConvertUtils{
 
-    /* public function multiChoices($preguntas, $nameFile = null){
+    public function multiChoicesOld($preguntas, $nameFile = null){
             // Eliminar archivos antiguos
             $oldFiles = glob('./files/archivo_*.xml');
             foreach($oldFiles as $oldFile){
@@ -111,7 +111,7 @@ class ConvertUtils{
             }
             $xml->save($nameFile);
             return count($preguntas); 
-    } */
+    }
 
     public function convertirPreguntas($preguntas, $nameFile = null){
         // Eliminar archivos antiguos

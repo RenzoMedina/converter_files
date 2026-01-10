@@ -46,7 +46,7 @@ class ConvertService{
                     'retroalimentacion' =>$retroalimentacionLimpia
                 ];
             }
-         return (new ConvertUtils())->multiChoices($preguntas);       
+         return (new ConvertUtils())->multiChoicesOld($preguntas);       
     }
 
     public function transforOld($path){
@@ -91,7 +91,7 @@ class ConvertService{
                     'retroalimentacion' => trim($m[9]),
                 ];
             }
-       return (new ConvertUtils())->multiChoices($preguntas);
+       return (new ConvertUtils())->multiChoicesOld($preguntas);
     }
 
     public function transforWithIndicators($path){
