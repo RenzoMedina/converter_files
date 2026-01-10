@@ -14,4 +14,14 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+      'alert-error',
+      'alert-success',
+      'bg-red-50',
+      'border-red-500',
+      'text-red-800',
+      'bg-green-50',
+      'border-green-500',
+      'text-green-800'
+  ]
 }

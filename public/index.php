@@ -6,6 +6,7 @@
     <link rel="icon" href="public/assets/img/icon.ico" type="image/x-icon">
     <title>Converter Document</title>
     <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
 <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12">    
@@ -19,6 +20,13 @@
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="p-8">
                     <form action="/upload" method="post" enctype="multipart/form-data" id="formulario">
+                    
+                    <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="true" class="sr-only peer" name="indicador">
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-100  rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    <span class="ms-3 text-md font-medium text-gray-700">Inidicadores</span>
+                    </label>
+                    
                     <div id="drop-zone" class="relative border-2 border-dashed border-gray-300 rounded-xl transition-all duration-200 p-8 md:p-12 text-center cursor-pointer hover:border-primary hover:bg-blue-50">
                     <div id="upload-content" class="flex flex-col items-center justify-center gap-4 pointer-events-none">
                         <div class="relative">
