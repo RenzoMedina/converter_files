@@ -6,9 +6,12 @@ use App\Utils\ConvertUtils;
 
 class ConvertService{
 
+    private $parser;
+    public function __construct(){
+        $this->parser = new \Smalot\PdfParser\Parser();
+    }
     public function transforNew($path){
-            $parser = new \Smalot\PdfParser\Parser();
-            $pdf = $parser->parseFile($path);
+            $pdf = $this->parser->parseFile($path);
             $text = $pdf->getText();
 
             $pattern = '/N° de pregunta:\s*(\d+)\s*(.*?)\nAlternativas\s*'
@@ -50,8 +53,7 @@ class ConvertService{
     }
 
     public function transforOld($path){
-        $parser = new \Smalot\PdfParser\Parser();
-        $pdf = $parser->parseFile($path);
+        $pdf = $this->parser->parseFile($path);
         $text = $pdf->getText();
         $text = preg_replace("/\r\n|\r/", "\n", $text);
         $text = preg_replace('/.*?plazos establecidos\.\s*/s','',$text);
@@ -95,43 +97,42 @@ class ConvertService{
     }
 
     public function transforWithIndicators($path){
-        $parser = new \Smalot\PdfParser\Parser();
-    $pdf = $parser->parseFile($path);
-    $text = $pdf->getText();
-    
-    // Dividir por indicadores
-    $indicadores = $this->extraerIndicadores($text);
-    
-    $resultados = [];
-    
-    foreach($indicadores as $numIndicador => $contenidoIndicador) {
-        $preguntas = $this->procesarIndicador($contenidoIndicador);
+        $pdf = $this->parser->parseFile($path);
+        $text = $pdf->getText();
         
-        // FILTRAR preguntas válidas
-        $preguntasValidas = array_filter($preguntas, function($p){
-            return isset($p['tipo']) && 
-                   $p['tipo'] !== 'ERROR' && 
-                   in_array($p['tipo'], ['multichoice', 'essay']);
-        });
+        // Dividir por indicadores
+        $indicadores = $this->extraerIndicadores($text);
         
-        // Reindexar array
-        $preguntasValidas = array_values($preguntasValidas);
+        $resultados = [];
         
-        if(empty($preguntasValidas)){
-            continue; // Saltar indicadores sin preguntas válidas
-        }
-        
-        // Generar archivo XML por indicador
-        $nombreArchivo = './files/indicador_' . $numIndicador . '_' . date('m_d_His') . '.xml';
-        $cantidadPreguntas = (new ConvertUtils())->convertirPreguntas($preguntasValidas, $nombreArchivo);
-        
-        $resultados[] = [
-            'indicador' => $numIndicador,
-            'titulo' => $contenidoIndicador['titulo'],
-            'archivo' => basename($nombreArchivo),
-            'cantidad' => $cantidadPreguntas
-        ];
-        }
+        foreach($indicadores as $numIndicador => $contenidoIndicador) {
+            $preguntas = $this->procesarIndicador($contenidoIndicador);
+            
+            // FILTRAR preguntas válidas
+            $preguntasValidas = array_filter($preguntas, function($p){
+                return isset($p['tipo']) && 
+                    $p['tipo'] !== 'ERROR' && 
+                    in_array($p['tipo'], ['multichoice', 'essay']);
+            });
+            
+            // Reindexar array
+            $preguntasValidas = array_values($preguntasValidas);
+            
+            if(empty($preguntasValidas)){
+                continue; // Saltar indicadores sin preguntas válidas
+            }
+            
+            // Generar archivo XML por indicador
+            $nombreArchivo = './files/indicador_' . $numIndicador . '_' . date('m_d_His') . '.xml';
+            $cantidadPreguntas = (new ConvertUtils())->convertirPreguntas($preguntasValidas, $nombreArchivo);
+            
+            $resultados[] = [
+                'indicador' => $numIndicador,
+                'titulo' => $contenidoIndicador['titulo'],
+                'archivo' => basename($nombreArchivo),
+                'cantidad' => $cantidadPreguntas
+                ];
+            }
         
         return [
             'success' => true,
@@ -317,4 +318,5 @@ class ConvertService{
         
         return trim($retroalimentacionLimpia);
     }
+
 }
