@@ -167,6 +167,10 @@ if (url.has('error-file')) {
     showAlert("Solo aceptamos archivos PDF por ahora. ¡Gracias!", 7000, 'error')
 }
 
+if (url.has('not-file')) {
+    showAlert("No existe el archivo", 7000, 'error')
+}
+
 const loader = document.getElementById("loader")
 document.getElementById('formulario').addEventListener('submit', function(e) {
     loader.classList.remove('hidden')
