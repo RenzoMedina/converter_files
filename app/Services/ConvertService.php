@@ -10,7 +10,7 @@ class ConvertService{
     public function __construct(){
         $this->parser = new \Smalot\PdfParser\Parser();
     }
-    public function transforNew($path){
+    /* public function transforNew($path){
             $pdf = $this->parser->parseFile($path);
             $text = $pdf->getText();
 
@@ -50,7 +50,7 @@ class ConvertService{
                 ];
             }
          return (new ConvertUtils())->multiChoicesOld($preguntas);       
-    }
+    } */
 
     public function transforOld($path){
         $pdf = $this->parser->parseFile($path);
@@ -101,12 +101,12 @@ class ConvertService{
         $text = $pdf->getText();
         
         // Dividir por indicadores
-        $indicadores = $this->extraerIndicadores($text);
+        $indicadores = $this->extractIndicators($text);
         
         $resultados = [];
         
         foreach($indicadores as $numIndicador => $contenidoIndicador) {
-            $preguntas = $this->procesarIndicador($contenidoIndicador);
+            $preguntas = $this->processIndicator($contenidoIndicador);
             
             // FILTRAR preguntas válidas
             $preguntasValidas = array_filter($preguntas, function($p){
@@ -124,7 +124,7 @@ class ConvertService{
             
             // Generar archivo XML por indicador
             $nombreArchivo = './files/indicador_' . $numIndicador . '_' . date('m_d_His') . '.xml';
-            $cantidadPreguntas = (new ConvertUtils())->convertirPreguntas($preguntasValidas, $nombreArchivo);
+            $cantidadPreguntas = (new ConvertUtils())->convertQuestions($preguntasValidas, $nombreArchivo);
             
             $resultados[] = [
                 'indicador' => $numIndicador,
@@ -141,117 +141,116 @@ class ConvertService{
         ];
     }
 
-        private function extraerIndicadores($text) {
-                // Encontrar todas las posiciones de indicadores
-            preg_match_all('/Indicador\s+(\d+):\s*([^\n]*)/s', $text, $matches, PREG_OFFSET_CAPTURE);
+    private function extractIndicators($text) {
+        // Encontrar todas las posiciones de indicadores
+        preg_match_all('/Indicador\s+(\d+):\s*([^\n]*)/s', $text, $matches, PREG_OFFSET_CAPTURE);
             
-            $indicadores = [];
+        $indicadores = [];
             
-            for($i = 0; $i < count($matches[0]); $i++) {
-                $numIndicador = (int)$matches[1][$i][0];
-                $tituloIndicador = trim($matches[2][$i][0]);
-                $inicioContenido = $matches[0][$i][1] + strlen($matches[0][$i][0]);
+        for($i = 0; $i < count($matches[0]); $i++) {
+            $numIndicador = (int)$matches[1][$i][0];
+            $tituloIndicador = trim($matches[2][$i][0]);
+            $inicioContenido = $matches[0][$i][1] + strlen($matches[0][$i][0]);
                 
-                // Determinar dónde termina este indicador
-                if($i < count($matches[0]) - 1) {
-                    $finContenido = $matches[0][$i + 1][1];
-                } else {
-                    $finContenido = strlen($text);
-                }
-                
-                $contenido = substr($text, $inicioContenido, $finContenido - $inicioContenido);
-                
-                $indicadores[$numIndicador] = [
-                    'titulo' => $tituloIndicador,
-                    'contenido' => $contenido
-                ];
+            // Determinar dónde termina este indicador
+            if($i < count($matches[0]) - 1) {
+                   $finContenido = $matches[0][$i + 1][1];
+            } else {
+                $finContenido = strlen($text);
             }
-            
-            return $indicadores;
+                
+            $contenido = substr($text, $inicioContenido, $finContenido - $inicioContenido);
+                
+            $indicadores[$numIndicador] = [
+                'titulo' => $tituloIndicador,
+                'contenido' => $contenido
+            ];
         }
+            
+        return $indicadores;
+    }
 
-        private function procesarIndicador($indicador) {
-            $contenido = $indicador['contenido'];
+    private function processIndicator($indicador) {
+        $contenido = $indicador['contenido'];
     
-            // Encontrar todas las preguntas con sus posiciones
-            preg_match_all('/N° de pregunta:\s*(\d+)/s', $contenido, $matches, PREG_OFFSET_CAPTURE);
+        // Encontrar todas las preguntas con sus posiciones
+        preg_match_all('/N° de pregunta:\s*(\d+)/s', $contenido, $matches, PREG_OFFSET_CAPTURE);
             
-            $preguntas = [];
+        $preguntas = [];
             
-            for($i = 0; $i < count($matches[0]); $i++) {
-                $numeroPregunta = (int)$matches[1][$i][0];
-                $inicioPregunta = $matches[0][$i][1];
+        for($i = 0; $i < count($matches[0]); $i++) {
+            $numeroPregunta = (int)$matches[1][$i][0];
+            $inicioPregunta = $matches[0][$i][1];
                 
-                // Determinar dónde termina esta pregunta
-                if($i < count($matches[0]) - 1) {
-                    $finPregunta = $matches[0][$i + 1][1];
-                } else {
-                    $finPregunta = strlen($contenido);
-                }
-                
-                $bloque = substr($contenido, $inicioPregunta, $finPregunta - $inicioPregunta);
-                $bloque = trim($bloque);
-                
-                // Detectar tipo: si tiene estructura a) b) c) d) e) es multichoice
-                $tieneOpciones = preg_match('/Alternativas\s+a\)\s+.*?\s+b\)\s+.*?\s+c\)\s+.*?\s+d\)\s+.*?\s+e\)/s', $bloque);
-                
-                if($tieneOpciones) {
-                    $pregunta = $this->procesarMultiChoice($bloque);
-                } else {
-                    $pregunta = $this->procesarEssay($bloque);
-                }
-                
-                if($pregunta) {
-                    $preguntas[] = $pregunta;
-                }
+            // Determinar dónde termina esta pregunta
+            if($i < count($matches[0]) - 1) {
+                $finPregunta = $matches[0][$i + 1][1];
+            } else {
+                $finPregunta = strlen($contenido);
             }
-            
-            return $preguntas;
+                
+            $bloque = substr($contenido, $inicioPregunta, $finPregunta - $inicioPregunta);
+            $bloque = trim($bloque);
+                
+            // Detectar tipo: si tiene estructura a) b) c) d) e) es multichoice
+            $tieneOpciones = preg_match('/Alternativas\s+a\)\s+.*?\s+b\)\s+.*?\s+c\)\s+.*?\s+d\)\s+.*?\s+e\)/s', $bloque);
+                
+            if($tieneOpciones) {
+                $pregunta = $this->processMultiChoice($bloque);
+            } else {
+                $pregunta = $this->processEssay($bloque);
+            }
+                
+            if($pregunta) {
+                $preguntas[] = $pregunta;
+            }
         }
-
-        private function procesarMultiChoice($bloque) {
-            $pattern = '/N° de pregunta:\s*(\d+)\s+'
-                        . '(.*?)'  // Pregunta (todo hasta Alternativas)
-                        . '\s*Alternativas\s+'
-                        . 'a\)\s+(.*?)\s+'  // Opción a
-                        . 'b\)\s+(.*?)\s+'  // Opción b  
-                        . 'c\)\s+(.*?)\s+'  // Opción c
-                        . 'd\)\s+(.*?)\s+'  // Opción d
-                        . 'e\)\s+(.*?)\s+'  // Opción e
-                        . 'Respuesta correcta\s+([a-eA-E])'  // Solo la letra
-                        . '(.*?)$'  // Resto (retroalimentación)
-                        . '/s';
             
-            if(preg_match($pattern, $bloque, $m)) {
-                $resto = $m[9];
-                $retroalimentacion = '';
-                
-                if(preg_match('/Retroalimentación:\s*(.*?)$/s', $resto, $retroMatch)) {
-                    $retroalimentacion = trim($retroMatch[1]);
-                }
+        return $preguntas;
+    }
 
-                $retroalimentacionLimpia = $this->limpiarRetroalimentacion($retroalimentacion);
+    private function processMultiChoice($bloque) {
+        $pattern = '/N° de pregunta:\s*(\d+)\s+'
+                    . '(.*?)'  
+                    . '\s*Alternativas\s+'
+                    . 'a\)\s+(.*?)\s+'  
+                    . 'b\)\s+(.*?)\s+'   
+                    . 'c\)\s+(.*?)\s+'  
+                    . 'd\)\s+(.*?)\s+'  
+                    . 'e\)\s+(.*?)\s+'  
+                    . 'Respuesta correcta\s+([a-eA-E])'  
+                    . '(.*?)$'  
+                    . '/s';
+            
+        if(preg_match($pattern, $bloque, $m)) {
+            $resto = $m[9];
+            $retroalimentacion = '';
                 
-                return [
-                    'tipo' => 'multichoice',
-                    'numero' => $m[1],
-                    'pregunta' => trim($m[2]),
-                    'opciones' => [
+            if(preg_match('/Retroalimentación:\s*(.*?)$/s', $resto, $retroMatch)) {
+                $retroalimentacion = trim($retroMatch[1]);
+            }
+
+            $retroalimentacionLimpia = $this->cleanFeedback($retroalimentacion);
+                
+            return [
+                'tipo' => 'multichoice',
+                'numero' => $m[1],
+                'pregunta' => trim($m[2]),
+                'opciones' => [
                         'a' => trim($m[3]),
                         'b' => trim($m[4]),
                         'c' => trim($m[5]),
                         'd' => trim($m[6]),
                         'e' => trim($m[7]),
-                    ],
-                    'respuesta' => strtolower(trim($m[8])), 
-                    'retroalimentacion' => $retroalimentacionLimpia
-                ];
-            }
-            
-            return null;
+                ],
+                'respuesta' => strtolower(trim($m[8])), 
+                'retroalimentacion' => $retroalimentacionLimpia
+            ];
         }
+        return null;
+    }
 
-    private function procesarEssay($bloque) {
+    private function processEssay($bloque) {
         // Patrón para essay (sin alternativas)
         $pattern = '/N° de pregunta:\s*(\d+)\s+'
             . '(.*?)'
@@ -261,7 +260,7 @@ class ConvertService{
         
         if(preg_match($pattern, $bloque, $m)) {
             $retroalimentacion = isset($m[3]) ? trim($m[3]) : '';
-            $retroalimentacionLimpia = $this->limpiarRetroalimentacion($retroalimentacion);
+            $retroalimentacionLimpia = $this->cleanFeedback($retroalimentacion);
             
             return [
                 'tipo' => 'essay',
@@ -274,7 +273,7 @@ class ConvertService{
         return null;
     }
 
-    private function limpiarRetroalimentacion($texto) {
+    private function cleanFeedback($texto) {
         if(empty($texto)) return '';
     
         $retroalimentacionLimpia = trim($texto);
@@ -319,4 +318,76 @@ class ConvertService{
         return trim($retroalimentacionLimpia);
     }
 
+    public function transform($file){
+        $pdf = $this->parser->parseFile($file);
+        $pdfText = $pdf->getText();
+        $pattern = '/N°\s*de\s+pregunta:\s*(\d+)\s*(.*?)\s*Retroalimentación:\s*(.*?)(?=N°\s*de\s+pregunta:|$)/s';
+        preg_match_all($pattern, $pdfText, $matches, PREG_SET_ORDER);
+        $questions = [];
+        foreach($matches as $m){
+            
+        $feedback = trim($m[3]);
+            if(preg_match('/(.*?semana\.)/s', $feedback, $retroMatch)) {
+                    $feedback = trim($retroMatch[1]);
+                } else {
+                    $feedback = preg_replace('/\n\s*\d+\s+.*$/s', '', $feedback);
+                }
+        $feedback = preg_replace('/\s+/', ' ', $feedback);
+        $answer = strtolower(trim(preg_replace('/.*Respuesta\s*correcta\s*/s','',$m[2])));
+
+        $questions[] =[
+                'tipo'=>$this->extractOptionsEssay($m[2], $this->extractOptionsMultichoices($m[2])[1]),
+                'numero'=>$m[1],
+                'pregunta'=>$this->cleanQuestion(trim($m[2])),
+                'opciones'=>$this->extractOptionsMultichoices($m[2])[0],
+                'respuesta'=>$this->cleanAnswer($answer),
+                'retroalimentacion'=>$feedback,
+            ];
+        }
+        return (new ConvertUtils())->convertXML($questions); ;
+    }
+    private function extractOptionsMultichoices($text,  $alternatives = [], $type=''){
+        $alternativesPattern ='/Alternativas\s*(.*?)(?=Indicador\s+de\s+evaluación|Respuesta\s+correcta)/s';
+        preg_match($alternativesPattern, $text, $matches);
+        if (isset($matches[1])) {
+            $textAlternatives = trim($matches[1]);
+
+            $patterOptions = '/([a-e])\)\s*([^\n]+)/';
+            preg_match_all($patterOptions, $textAlternatives, $optionMatches, PREG_SET_ORDER);
+            foreach ($optionMatches as $opt) {
+                $word = $opt[1];
+                $content = trim($opt[2]);
+                
+                if (stripos($content, 'Alternativas') === false) {
+                    $alternatives[$word] = $content;
+                    $type = 'multichoice';
+                }
+            }
+        }
+        return [$alternatives, $type];
+    }
+
+    private function extractOptionsEssay($text, $type=''){
+        $patternEssay = '/Escribe aquí tu respuesta/s';
+        if (preg_match($patternEssay, $text)) {
+            $type = 'essay';  
+        }
+        return $type;
+    }
+
+    private function cleanQuestion($text){
+        $patterQuestion = preg_replace('/\s*Alternativas\s*.*$/si', '', $text);
+        $patterQuestion = preg_replace('/\s*Escribe\s+aquí\s+tu\s+respuesta.*$/si', '', $patterQuestion);
+        $patterQuestion = preg_replace('/\s+/', ' ', $patterQuestion);
+        return trim($patterQuestion);
+    }
+
+    private function cleanAnswer($answer){
+        $answer = trim($answer);
+        if (preg_match('/^[A-Ea-e]$/', $answer)) {
+            return strtolower($answer);
+        }else {
+            return $answer = '';
+        }
+    }
 }
