@@ -113,7 +113,7 @@ class ConvertUtils{
             return count($preguntas); 
     }
 
-    public function convertirPreguntas($preguntas, $nameFile = null){
+    public function convertQuestions($preguntas, $nameFile = null){
         // Eliminar archivos antiguos
         $oldFiles = glob('./files/archivo_*.xml');
         foreach($oldFiles as $oldFile){
@@ -135,9 +135,9 @@ class ConvertUtils{
                 continue; // Saltar preguntas sin tipo
             }
             if($p['tipo'] === 'multichoice'){
-                $this->agregarMultiChoice($xml, $quiz, $p);
+                $this->addMultiChoice($xml, $quiz, $p);
             } elseif($p['tipo'] === 'essay'){
-                $this->agregarEssay($xml, $quiz, $p);
+                $this->addEssay($xml, $quiz, $p);
             }
         }
         
@@ -148,9 +148,7 @@ class ConvertUtils{
         return count($preguntas);
     }
 
-    private function agregarMultiChoice($xml, $quiz, $p){
-        $letraMap = ['a', 'b', 'c', 'd', 'e'];
-        
+    private function addMultiChoice($xml, $quiz, $p){
         // Crear pregunta
         $question = $xml->createElement('question');
         $question->setAttribute('type', 'multichoice');
@@ -206,15 +204,15 @@ class ConvertUtils{
         $question->appendChild($showStandardInstruction);
 
         // Agregar opciones
-        foreach($letraMap as $letra){
+        foreach($p['opciones'] as $word => $option){
             $answer = $xml->createElement('answer');
-            $correct = $letra === $p['respuesta'];
-            $fraction = ($letra === $p['respuesta']) ? '100' : '0';
+            $correct = (strtolower($word) === strtolower($p['respuesta']));
+            $fraction = ($word === $p['respuesta']) ? '100' : '0';
             $answer->setAttribute('fraction', $fraction);
             $answer->setAttribute('format', 'html');
             
             $answerText = $xml->createElement('text');
-            $answerText->appendChild($xml->createCDATASection(htmlspecialchars($p['opciones'][$letra])));
+            $answerText->appendChild($xml->createCDATASection(htmlspecialchars($p['opciones'][$word])));
             $answer->appendChild($answerText);
             
             $feedback = $xml->createElement('feedback');
@@ -232,7 +230,7 @@ class ConvertUtils{
         $quiz->appendChild($question);
     }
 
-    private function agregarEssay($xml, $quiz, $p){
+    private function addEssay($xml, $quiz, $p){
         // Crear pregunta tipo essay
         $question = $xml->createElement('question');
         $question->setAttribute('type', 'essay');
@@ -311,8 +309,39 @@ class ConvertUtils{
 
     // Mantener método original para compatibilidad
     public function multiChoices($preguntas, $nameFile = null){
-        return $this->convertirPreguntas($preguntas, $nameFile);
+        return $this->convertQuestions($preguntas, $nameFile);
     }
 
+    public function convertXML($question, $nameFile = null){
+        // Eliminar archivos antiguos
+        $oldFiles = glob('./files/archivo_*.xml');
+            foreach($oldFiles as $oldFile){
+                if (file_exists($oldFile)) {
+                    unlink($oldFile);
+                }
+            }
+        // Crear XML para Moodle
+        $xml = new DOMDocument('1.0', 'UTF-8');
+        $xml->formatOutput = true;
 
+        $quiz = $xml->createElement('quiz');
+        $xml->appendChild($quiz);
+
+        // Saltar preguntas sin tipo
+        foreach($question as $q){
+            if(!isset($q['tipo'])){
+                continue; 
+            }
+            if($q['tipo'] === 'multichoice'){
+                $this->addMultiChoice($xml, $quiz, $q);
+            } elseif($q['tipo'] === 'essay'){
+                $this->addEssay($xml, $quiz, $q);
+            }
+        }
+        if(!$nameFile){
+            $nameFile = './files/archivo_'.date('m_d_His').'.xml';
+        }
+        $xml->save($nameFile);
+        return count($question);
+    }
 }

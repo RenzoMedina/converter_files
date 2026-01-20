@@ -17,8 +17,7 @@ class ConvertController{
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
-
-            if($indicators == 'true'){
+          if($indicators == 'true'){
                 try{
                 // Intentar con formato de indicadores
                     $resultado = (new ConvertService())->transforWithIndicators($path);
@@ -45,7 +44,7 @@ class ConvertController{
                 }
             }else{
                  //primera formato
-                $textXML = (new ConvertService())->transforNew($path);
+                $textXML = (new ConvertService())->transform($path);
                     if($textXML <= 0){
                         //segundo formato
                         $text = (new ConvertService())->transforOld($path);
@@ -54,8 +53,6 @@ class ConvertController{
                     else{
                         Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
                     }
-                /*} else {
-                    Flight::redirect('/?error'); */
             }
            
         }
@@ -64,8 +61,6 @@ class ConvertController{
             }
     }
    public function download(){
-        // Buscar todos los archivos generados
-        /* $files = glob('./files/indicador_*.xml'); */
          $files = glob('./files/*.xml');
         
         if(empty($files)){

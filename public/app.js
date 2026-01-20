@@ -154,10 +154,6 @@ function closeAlert() {
     alertBox.classList.add('translate-x-[120%]')
 }
 
-if (url.has('error')) {
-    showAlert("No ha seleccionado ningún archivo", 7000, 'error')
-}
-
 if (url.has('success')) {
     const total = url.get('total')
     showAlert(`¡Archivo horneado y servido! Descárgalo cuando quieras <br> Total de ${total} preguntas creadas`, 7000, 'success')
@@ -165,6 +161,28 @@ if (url.has('success')) {
 
 if (url.has('error-file')) {
     showAlert("Solo aceptamos archivos PDF por ahora. ¡Gracias!", 7000, 'error')
+}
+
+if (url.has('not-file')) {
+    showAlert("No existe el archivo", 7000, 'error')
+}
+
+const errorType = url.get('error')
+const errorMsg = url.get('msg')
+
+if (errorType) {
+    const mensajes = {
+        'sin-preguntas': 'No se encontraron preguntas válidas en el PDF',
+        'formato-invalido': errorMsg || 'El formato del PDF no es reconocido',
+        'no-preguntas': 'No se encontraron preguntas en el documento',
+        'no-preguntas-indicadores': 'No se encontraron preguntas en los indicadores',
+        'procesamiento': errorMsg || 'Error al procesar el archivo',
+        'fatal': errorMsg || 'Ocurrió un error inesperado al procesar el PDF',
+        'default': errorMsg || 'Ha ocurrido un error'
+    }
+    
+    const mensaje = mensajes[errorType] || mensajes['default']
+    showAlert(mensaje, 7000, 'error')
 }
 
 const loader = document.getElementById("loader")
