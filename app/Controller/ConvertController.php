@@ -53,7 +53,7 @@ class ConvertController{
                     else{
                         Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
                     }
-            }
+            } 
            
         }
         if (file_exists($path)) {
