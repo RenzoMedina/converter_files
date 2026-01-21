@@ -138,6 +138,8 @@ class ConvertUtils{
                 $this->addMultiChoice($xml, $quiz, $p);
             } elseif($p['tipo'] === 'essay'){
                 $this->addEssay($xml, $quiz, $p);
+            }elseif($p['tipo'] === 'truefalse'){
+                $this->addTrueOrFalse($xml, $quiz, $p);
             }
         }
         
@@ -306,42 +308,77 @@ class ConvertUtils{
         
         $quiz->appendChild($question);
     }
+    private function addTrueOrFalse($xml, $quiz, $p){
+        // Crear pregunta tipo truefalse
+        $question = $xml->createElement('question');
+        $question->setAttribute('type', 'truefalse');
+        
+        // Nombre de la pregunta
+        $name = $xml->createElement('name');
+        $nameText = $xml->createElement('text');
+        $nameText->appendChild($xml->createTextNode('P' . $p['numero']));
+        $name->appendChild($nameText);
+        $question->appendChild($name);
+        
+        // Texto de la pregunta
+        $questiontext = $xml->createElement('questiontext');
+        $questiontext->setAttribute('format', 'html');
+        $questiontextText = $xml->createElement('text');
+        $questiontextText->appendChild($xml->createCDATASection(htmlspecialchars($p['pregunta'])));
+        $questiontext->appendChild($questiontextText);
+        $question->appendChild($questiontext);
 
-    // Mantener método original para compatibilidad
+        // Retroalimentación general
+        $generalfeedback = $xml->createElement('generalfeedback');
+        $generalfeedback->setAttribute('format', 'html');
+        $generalfeedbackText = $xml->createElement('text');
+        $generalfeedback->appendChild($generalfeedbackText);
+        $question->appendChild($generalfeedback);
+
+        // Penalización por intento
+        $penalty = $xml->createElement('penalty', '1.0000000');
+        $question->appendChild($penalty);
+        
+        // Ocultar pregunta
+        $hidden = $xml->createElement('hidden', '0');
+        $question->appendChild($hidden);
+
+        // puntaje por defecto a 0.5
+        $defaultgrade = $xml->createElement('defaultgrade', '0.5');
+        $question->appendChild($defaultgrade);
+        
+        // Shuffle answers 
+        $question->appendChild($xml->createElement('shuffleanswers', '0'));
+        
+        // Respuestas obligatorias 
+        $correct = ($p['respuesta'] === 'verdadero') ? 'true' : 'false'; 
+        $incorrect = ($correct === 'true') ? 'false' : 'true';
+        
+        // Respuesta correcta 
+        $answerCorrect = $xml->createElement('answer');
+        $answerCorrect->setAttribute('fraction', '100');
+        $answerCorrect->appendChild($xml->createElement('text', $correct));
+        $question->appendChild($answerCorrect);
+
+        // Respuesta incorrecta
+        $answerIncorrect = $xml->createElement('answer');
+        $answerIncorrect->setAttribute('fraction', '0');
+        $answerIncorrect->appendChild($xml->createElement('text', $incorrect));
+        $question->appendChild($answerIncorrect);
+
+        // Feedback para respuesta correcta
+        $feedback = $xml->createElement('feedback');
+        $feedback->setAttribute('format', 'html');
+        $feedbackText = $xml->createElement('text');
+        $feedbackText->appendChild( $xml->createCDATASection($p['retroalimentacion'] ?? '') );
+        $feedback->appendChild($feedbackText);
+        $answerCorrect->appendChild($feedback);
+    
+        // Agregar al quiz
+        $quiz->appendChild($question);
+    }
     public function multiChoices($preguntas, $nameFile = null){
         return $this->convertQuestions($preguntas, $nameFile);
     }
 
-    public function convertXML($question, $nameFile = null){
-        // Eliminar archivos antiguos
-        $oldFiles = glob('./files/archivo_*.xml');
-            foreach($oldFiles as $oldFile){
-                if (file_exists($oldFile)) {
-                    unlink($oldFile);
-                }
-            }
-        // Crear XML para Moodle
-        $xml = new DOMDocument('1.0', 'UTF-8');
-        $xml->formatOutput = true;
-
-        $quiz = $xml->createElement('quiz');
-        $xml->appendChild($quiz);
-
-        // Saltar preguntas sin tipo
-        foreach($question as $q){
-            if(!isset($q['tipo'])){
-                continue; 
-            }
-            if($q['tipo'] === 'multichoice'){
-                $this->addMultiChoice($xml, $quiz, $q);
-            } elseif($q['tipo'] === 'essay'){
-                $this->addEssay($xml, $quiz, $q);
-            }
-        }
-        if(!$nameFile){
-            $nameFile = './files/archivo_'.date('m_d_His').'.xml';
-        }
-        $xml->save($nameFile);
-        return count($question);
-    }
 }

@@ -10,48 +10,6 @@ class ConvertService{
     public function __construct(){
         $this->parser = new \Smalot\PdfParser\Parser();
     }
-    /* public function transforNew($path){
-            $pdf = $this->parser->parseFile($path);
-            $text = $pdf->getText();
-
-            $pattern = '/N° de pregunta:\s*(\d+)\s*(.*?)\nAlternativas\s*'
-                    . 'a\)\s*(.*?)\n'
-                    . 'b\)\s*(.*?)\n'
-                    . 'c\)\s*(.*?)\n'
-                    . 'd\)\s*(.*?)\n'
-                    . 'e\)\s*(.*?)\n'
-                    .'.*?Respuesta correcta\s*([aA-eE])\s*'
-                    .'Retroalimentación:\s*(.*?)(?=N° de pregunta:|$)/s';
-            preg_match_all($pattern, $text, $match, PREG_SET_ORDER);
-        
-            $preguntas =[];
-            foreach($match as $m){
-                
-                $retroalimentacionLimpia = trim($m[9]);
-                if(preg_match('/(.*?semana\.)/s', $retroalimentacionLimpia, $retroMatch)) {
-                    $retroalimentacionLimpia = trim($retroMatch[1]);
-                } else {
-                    $retroalimentacionLimpia = preg_replace('/\n\s*\d+\s+.*$/s', '', $retroalimentacionLimpia);
-                }
-                $retroalimentacionLimpia = preg_replace('/\s+/', ' ', $retroalimentacionLimpia);
-                
-                $preguntas[] = [
-                    'numero' => $m[1],
-                    'pregunta' => trim($m[2]),
-                    'opciones' => [
-                        'a' => trim($m[3]),
-                        'b' => trim($m[4]),
-                        'c' => trim($m[5]),
-                        'd' => trim($m[6]),
-                        'e' => trim($m[7]),
-                    ],
-                    'respuesta' => strtolower(trim($m[8])), 
-                    'retroalimentacion' =>$retroalimentacionLimpia
-                ];
-            }
-         return (new ConvertUtils())->multiChoicesOld($preguntas);       
-    } */
-
     public function transforOld($path){
         $pdf = $this->parser->parseFile($path);
         $text = $pdf->getText();
@@ -334,23 +292,27 @@ class ConvertService{
                 }
         $feedback = preg_replace('/\s+/', ' ', $feedback);
         $answer = strtolower(trim(preg_replace('/.*Respuesta\s*correcta\s*/s','',$m[2])));
-
+        switch(true){
+            
+        }
+        $type = $this->categoryQuestion($m[2]);
         $questions[] =[
-                'tipo'=>$this->extractOptionsEssay($m[2], $this->extractOptionsMultichoices($m[2])[1]),
+                'tipo'=>$this->categoryQuestion($m[2]),
                 'numero'=>$m[1],
                 'pregunta'=>$this->cleanQuestion(trim($m[2])),
-                'opciones'=>$this->extractOptionsMultichoices($m[2])[0],
+                'opciones'=>$this->getOptions($m[2],$type ),
                 'respuesta'=>$this->cleanAnswer($answer),
                 'retroalimentacion'=>$feedback,
             ];
         }
-        return (new ConvertUtils())->convertXML($questions); ;
+         return (new ConvertUtils())->convertQuestions($questions);
+       //return $questions;
     }
     private function extractOptionsMultichoices($text,  $alternatives = [], $type=''){
         $alternativesPattern ='/Alternativas\s*(.*?)(?=Indicador\s+de\s+evaluación|Respuesta\s+correcta)/s';
         preg_match($alternativesPattern, $text, $matches);
-        if (isset($matches[1])) {
-            $textAlternatives = trim($matches[1]);
+        if (isset($matches[0])) {
+            $textAlternatives = trim($matches[0]);
 
             $patterOptions = '/([a-e])\)\s*([^\n]+)/';
             preg_match_all($patterOptions, $textAlternatives, $optionMatches, PREG_SET_ORDER);
@@ -367,27 +329,86 @@ class ConvertService{
         return [$alternatives, $type];
     }
 
+    private function categoryQuestion($text){
+        list($alternativesTF,$typetrueOrFalse) = $this->extractOptionsTrueFalse($text);
+        if($typetrueOrFalse !== ''){
+            return $typetrueOrFalse;
+        }
+
+        $typeEssay = $this->extractOptionsEssay($text);
+        if($typeEssay !== ''){
+            return $typeEssay;
+        }
+
+        list($alternatives, $typeMulti) = $this->extractOptionsMultichoices($text);
+        if($typeMulti !== ''){
+            return $typeMulti;
+        }
+        return '';
+    }
     private function extractOptionsEssay($text, $type=''){
         $patternEssay = '/Escribe aquí tu respuesta/s';
         if (preg_match($patternEssay, $text)) {
             $type = 'essay';  
-        }
+        } 
         return $type;
     }
 
+    private function extractOptionsTrueFalse($text,  $alternatives = [], $type=''){
+        $patternTrueFalse = '/Verdadero\s+o\s+falso\s*(.*?)(?=Respuesta\s+correcta)/si';
+        preg_match($patternTrueFalse, $text, $matches);
+        if(isset($matches[1])){
+            $textAlternatives = trim($matches[1]);
+
+             $patterOptions = '/([a-b])\)\s*([^\n]+)/';
+            preg_match_all($patterOptions, $textAlternatives, $optionMatches, PREG_SET_ORDER);
+            foreach ($optionMatches as $opt) {
+                $word = $opt[1];
+                $content = trim($opt[2]);
+                
+                if (stripos($content, 'Verdadero o falso') === false) {
+                    $alternatives[$word] = $content;
+                    $type = 'truefalse';
+                }
+            }
+        }
+         return [$alternatives, $type];
+    }
     private function cleanQuestion($text){
         $patterQuestion = preg_replace('/\s*Alternativas\s*.*$/si', '', $text);
         $patterQuestion = preg_replace('/\s*Escribe\s+aquí\s+tu\s+respuesta.*$/si', '', $patterQuestion);
+        $patterQuestion = preg_replace('/\s*Verdadero\s+o\s+falso.*$/si', '', $patterQuestion);
         $patterQuestion = preg_replace('/\s+/', ' ', $patterQuestion);
         return trim($patterQuestion);
     }
 
     private function cleanAnswer($answer){
         $answer = trim($answer);
+        
         if (preg_match('/^[A-Ea-e]$/', $answer)) {
             return strtolower($answer);
-        }else {
+
+        }elseif(preg_match('/^(verdadero|falso)$/i', $answer)) {
+            return strtolower($answer);
+            }
+        else {
             return $answer = '';
         }
+    }
+
+    private function getOptions($text, $type){
+        switch($type){
+        case 'multichoice':
+            list($opciones, $tipoTemp) = $this->extractOptionsMultichoices($text);
+            return $opciones;
+            
+        case 'truefalse':
+            list($opciones, $tipoTemp) = $this->extractOptionsTrueFalse($text);
+            return $opciones;
+            
+        case 'essay':
+        default:
+            return [];
+    }
     }
 }

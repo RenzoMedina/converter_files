@@ -2,16 +2,15 @@
 
 Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle. Diseñado para integrarse fácilmente en flujos CI/CD, con despliegue reproducible en Docker, monitoreo con supervisord 
 
-
-
 ## 🚀 Características
 
 - Conversión automática de archivos PDF a XML estructurado
-- Arquitectura modular con rutas definidas en PHP nativo
+- Arquitectura modular con rutas definidas en PHP con FlightPHP
 - Contenedor Docker optimizado para entornos reproducibles
 - Supervisión de procesos con `supervisord`
 - Listo para integración con pipelines CI/CD y monitoreo
 - Estilos personalizados con CSS y TailwindCSS
+- 3 tipos de preguntas alternativas, ensayo/desarrollo y verdadero o falso (multichoices, essay, truefalse)
 
 ## 📁 Estructura del proyecto
 
@@ -25,7 +24,6 @@ Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle
 └── Dockerfile
 
 ```
-
 
 ## ⚙️ Requisitos
 
@@ -49,8 +47,6 @@ docker-compose up -d
 - Integración con Moodle vía API REST o WebService
 
 - Conversión en lote de múltiples PDFs
-
-- Interfaz web para subir archivos y visualizar resultados
 
 - ChatOps para notificar conversiones exitosas o fallidas
 
