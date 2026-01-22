@@ -8,7 +8,6 @@
     const fileName = document.getElementById('file-name')
     const fileSize = document.getElementById('file-size')
 
-    
     function formatFileSize(bytes) {
         if (bytes === 0) return '0 Bytes'
         const k = 1024;
@@ -140,6 +139,9 @@ const showAlert = (message, duration, type) => {
         success: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>`,
+        info:  `<svg class="w-6 h-6 icon-info" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+               </svg>`,
     };
     
     alertIcon.innerHTML = icons[type] 
@@ -159,14 +161,6 @@ if (url.has('success')) {
     showAlert(`¡Archivo horneado y servido! Descárgalo cuando quieras <br> Total de ${total} preguntas creadas`, 7000, 'success')
 }
 
-if (url.has('error-file')) {
-    showAlert("Solo aceptamos archivos PDF por ahora. ¡Gracias!", 7000, 'error')
-}
-
-if (url.has('not-file')) {
-    showAlert("No existe el archivo", 7000, 'error')
-}
-
 const errorType = url.get('error')
 const errorMsg = url.get('msg')
 
@@ -177,6 +171,9 @@ if (errorType) {
         'no-preguntas': 'No se encontraron preguntas en el documento',
         'no-preguntas-indicadores': 'No se encontraron preguntas en los indicadores',
         'procesamiento': errorMsg || 'Error al procesar el archivo',
+        'not-file': 'El archivo no existe o no se pudo encontrar, vuelve a intentarlo',
+        'error-zip': 'Error al crear el archivo ZIP, por favor intenta de nuevo',
+        'error-download': 'Error al descargar el archivo, por favor intenta de nuevo',
         'fatal': errorMsg || 'Ocurrió un error inesperado al procesar el PDF',
         'default': errorMsg || 'Ha ocurrido un error'
     }
@@ -190,4 +187,11 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
     loader.classList.remove('hidden')
     loader.classList.add('flex')
 });
+
+window.addEventListener('load', function() {
+    if (!this.sessionStorage.getItem('alertShown')) {
+        showAlert('! Importante ! Por motivos de seguridad, tu archivo solo podrá descargarse una vez. Si aparece algún error durante la descarga, simplemente vuelve a convertir tu documento. No almacenamos tus archivos para proteger tu información.', 10000, 'info')
+        this.sessionStorage.setItem('alertShown', 'true')
+    }
+})
 

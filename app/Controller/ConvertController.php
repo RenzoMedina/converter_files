@@ -11,7 +11,7 @@ class ConvertController{
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
         $indicators = Flight::request()->data->indicador;
          if($upload->getClientMediaType() != "application/pdf"){
-            Flight::redirect('/?error-file');
+            Flight::redirect('/?error=formato-invalido');
             die;
         } 
         if ($upload->getError() === UPLOAD_ERR_OK) {
@@ -20,7 +20,7 @@ class ConvertController{
           if($indicators == 'true'){
                 try{
                 // Intentar con formato de indicadores
-                    $resultado = (new ConvertService())->transforWithIndicators($path);
+                    $resultado = (new ConvertService())->transformWithIndicators($path);
                     
                     if(isset($resultado['success']) && $resultado['success'] === true && $resultado['archivos_generados'] > 0){
                         // Éxito con múltiples indicadores
@@ -30,17 +30,8 @@ class ConvertController{
                         throw new \Exception('No se encontraron indicadores');
                     }    
                 } catch(\Exception $e) {
-                    // Fallback: intentar con formato antiguo
-                    try {
-                        $text = (new ConvertService())->transforOld($path);
-                        if($text > 0){
-                            Flight::redirect('/?success=1&total='.urlencode((string)$text));
-                        } else {
-                            Flight::redirect('/?error=no-preguntas');
-                        }
-                    } catch(\Exception $e2) {
-                        Flight::redirect('/?error='.urlencode($e2->getMessage()));
-                    }
+                    Flight::redirect('/?error=no-preguntas-indicadores');
+               
                 }
             }else{
                  //primera formato
@@ -48,7 +39,11 @@ class ConvertController{
                     if($textXML <= 0){
                         //segundo formato
                         $text = (new ConvertService())->transforOld($path);
-                        Flight::redirect('/?success=1&total='.urlencode((string)$text));
+                        if($text <= 0){
+                            Flight::redirect('/?error=sin-preguntas');
+                        }else{
+                            Flight::redirect('/?success=1&total='.urlencode((string)$text));
+                        }
                     }
                     else{
                         Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
@@ -64,7 +59,7 @@ class ConvertController{
          $files = glob('./files/*.xml');
         
         if(empty($files)){
-            Flight::redirect('/?not-file');
+            Flight::redirect('/?error=not-file');
             return;
         }
         
@@ -79,7 +74,7 @@ class ConvertController{
         $zip = new ZipArchive();
         
         if ($zip->open($zipName, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== TRUE) {
-            Flight::redirect('/?error-zip');
+            Flight::redirect('/?error=error-zip');
             return;
         }
         
@@ -111,7 +106,7 @@ class ConvertController{
             } 
             exit;
         } else {
-            Flight::redirect('/?error-download');
+            Flight::redirect('/?error=error-download');
         }
 }
 
@@ -135,7 +130,7 @@ private function downloadSingleFile($file){
             unlink($file);
             exit;
         } else {
-            Flight::redirect('/?not-file');
+            Flight::redirect('/?error=not-file');
         }
 }
 

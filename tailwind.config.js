@@ -17,6 +17,7 @@ module.exports = {
   safelist: [
       'alert-error',
       'alert-success',
+      'alert-info',
       'bg-red-50',
       'border-red-500',
       'text-red-800',
