@@ -51,6 +51,11 @@
         border-color: #BBF7D0;
         color: #166534;
     }
+    .alert-info{
+        background-color: #EFF6FF;  
+        border-color: #BFDBFE;
+        color: #1E40AF; 
+    }
      .icon-error {
         color: #DC2626;
     }
