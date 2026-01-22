@@ -343,7 +343,7 @@ class ConvertService{
         if (isset($matches[0])) {
             $textAlternatives = trim($matches[0]);
 
-            $patterOptions = '/([a-eA-E])[\.\)]\s*(.*?)(?=\s*[a-eA-E][\.\)]|\s*Respuesta\s+correcta|$)/s';
+            $patterOptions = '/([a-e])\)\s*([^\n]+)/';
             preg_match_all($patterOptions, $textAlternatives, $optionMatches, PREG_SET_ORDER);
             foreach ($optionMatches as $opt) {
                 $word = strtolower($opt[1]);
