@@ -9,8 +9,8 @@ class FileService{
      * @return void
      *
      */
-    public function cleanOldFiles($pattern){
-        $oldFiles = glob($pattern);
+    public function cleanOldFiles($path){
+        $oldFiles = glob($path);
         foreach($oldFiles as $oldFile){
             if (file_exists($oldFile)) {
                 unlink($oldFile);
@@ -22,8 +22,6 @@ class FileService{
      * @return string
      */
     public function builderFile(){
-        $path = rtrim($_ENV['FILES_PATH'], '/');
-        $prefix = $_ENV['FILE_PREFIX'];
-        return $path . '/' . $prefix . '_' . date('mdHis') . '.xml';
+        return './files/archivo_'.date('mdHis').'.xml';
     }
 }
