@@ -116,7 +116,7 @@ class ConvertUtils{
 
     public function convertQuestions($preguntas, $nameFile = null){
         // Eliminar archivos antiguos
-        (new FileService())->cleanOldFiles($_ENV['PATH']);
+        (new FileService())->cleanOldFiles('./files/archivo_*.xml');
         
         // Crear XML para Moodle
         $xml = new DOMDocument('1.0', 'UTF-8');
