@@ -2,6 +2,6 @@
 
 namespace App\Converters;
 
-class ConverterGift {
+class GiftConverter {
     
 }
