@@ -32,4 +32,5 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/converterfiles:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/converterfiles:latest
     
