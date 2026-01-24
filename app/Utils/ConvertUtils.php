@@ -2,6 +2,7 @@
 
 namespace App\Utils;
 
+use App\Services\FileService;
 use DOMDocument;
 
 class ConvertUtils{
@@ -115,12 +116,7 @@ class ConvertUtils{
 
     public function convertQuestions($preguntas, $nameFile = null){
         // Eliminar archivos antiguos
-        $oldFiles = glob('./files/archivo_*.xml');
-        foreach($oldFiles as $oldFile){
-            if (file_exists($oldFile)) {
-                unlink($oldFile);
-            }
-        }
+        (new FileService())->cleanOldFiles($_ENV['PATH']);
         
         // Crear XML para Moodle
         $xml = new DOMDocument('1.0', 'UTF-8');
@@ -142,9 +138,9 @@ class ConvertUtils{
                 $this->addTrueOrFalse($xml, $quiz, $p);
             }
         }
-        
         if(!$nameFile){
-            $nameFile = './files/archivo_'.date('m_d_His').'.xml';
+            $nameFile = (new FileService())->builderFile();
+
         }
         $xml->save($nameFile);
         return count($preguntas);
