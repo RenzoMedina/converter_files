@@ -1,0 +1,50 @@
+name: Auto Rollback to Previous Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get list of tags from Docker Hub
+        id: tags
+        run: |
+          TAGS=$(curl -s "https://hub.docker.com/v2/repositories/${{ secrets.DOCKER_USERNAME }}/converterfiles/tags/?page_size=100" \
+            | jq -r '.results[].name' \
+            | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' \
+            | sort -V)
+          
+          echo "tags<<EOF" >> $GITHUB_OUTPUT
+          echo "$TAGS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Determine previous version
+        id: previous
+        run: |
+          TAGS=(${{ steps.tags.outputs.tags }})
+          COUNT=${#TAGS[@]}
+
+          if [ "$COUNT" -lt 2 ]; then
+            echo "No hay versión anterior disponible"
+            exit 1
+          fi
+
+          PREVIOUS_VERSION=${TAGS[$COUNT-2]}
+          echo "previous=$PREVIOUS_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Pull previous version
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/converterfiles:${{ steps.previous.outputs.previous }}
+
+      - name: Tag as latest
+        run: docker tag ${{ secrets.DOCKER_USERNAME }}/converterfiles:${{ steps.previous.outputs.previous }} ${{ secrets.DOCKER_USERNAME }}/converterfiles:latest
+
+      - name: Push latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/converterfiles:latest
