@@ -37,7 +37,7 @@ COPY supervisord.conf /etc/supervisord.conf
 
 
 RUN mkdir -p /var/www/convert/files && \
-   chown -R www-data:www-data /var/www/convert && \
+   chown -R nobody:nobody /var/www/convert && \
     chmod -R 755 /var/www/convert && \
     chmod -R 777 /var/www/convert/files
 
