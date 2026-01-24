@@ -405,9 +405,10 @@ class ConvertService{
      * @return string
      */
     private function cleanQuestion($text){
-        $patterQuestion = preg_replace('/\s*Alternativas\s*.*$/si', '', $text);
+        $patterQuestion = preg_replace('/\n+/', '', $text);
+        $patterQuestion = preg_replace('/\s+Alternativas\s+[a-e]\).*$/is', '', $text);
         $patterQuestion = preg_replace('/\s*Escribe\s+aquí\s+tu\s+respuesta.*$/si', '', $patterQuestion);
-        $patterQuestion = preg_replace('/\s*Verdadero\s+o\s+falso.*$/si', '', $patterQuestion);
+        $patterQuestion = preg_replace('/\s+Verdadero\s+o\s+falso\s+[a-b]\).*$/is', '', $patterQuestion);
         $patterQuestion = preg_replace('/\s+/', ' ', $patterQuestion);
         return trim($patterQuestion);
     }
@@ -490,5 +491,28 @@ class ConvertService{
         $retroalimentacionLimpia = preg_replace('/\s+/', ' ', $retroalimentacionLimpia);
         
         return trim($retroalimentacionLimpia);
+    }
+
+    private function cleanFullText($content){
+        $pregunta = preg_split('/(N°\s*de\s*pregunta:\s*\d+)/i', $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $textoLimpio = '';
+        for ($i = 1; $i < count($pregunta); $i +=2) {
+            if(isset($pregunta[$i]) && isset($pregunta[$i + 1])) {
+                $numeroPregunta = $pregunta[$i];
+                $contenidoPregunta = $pregunta[$i+1];
+            }
+
+            $contenidoPregunta = $this->cleanQuestionBlock($contenidoPregunta);
+
+            $textoLimpio .=$numeroPregunta.$contenidoPregunta."\n\n";
+        }
+        return trim($textoLimpio);
+    }
+
+    private function cleanQuestionBlock($block){
+        if(preg_match('/(.*?Retroalimentación:.*?)(?=\n\s*\d+\s+[A-Z]|$)/s', $block, $matches)) {
+            return trim($matches[1]);
+        }
+        return trim($block);
     }
 }
