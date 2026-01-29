@@ -9,7 +9,7 @@ class FileService{
      * @return void
      *
      */
-    public function cleanOldFiles($path){
+    public static function cleanOldFiles($path){
         $oldFiles = glob($path);
         foreach($oldFiles as $oldFile){
             if (file_exists($oldFile)) {
@@ -21,7 +21,7 @@ class FileService{
      * Contruye o no el nombre del archivo basado en variables de entorno y la fecha actual.
      * @return string
      */
-    public function builderFile(){
+    public static function builderFile(){
         return './files/archivo_'.date('mdHis').'.xml';
     }
     

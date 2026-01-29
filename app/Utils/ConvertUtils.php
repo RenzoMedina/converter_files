@@ -9,12 +9,7 @@ class ConvertUtils{
 
     public function multiChoicesOld($preguntas, $nameFile = null){
             // Eliminar archivos antiguos
-            $oldFiles = glob('./files/archivo_*.xml');
-            foreach($oldFiles as $oldFile){
-                if (file_exists($oldFile)) {
-                    unlink($oldFile);
-                }
-            }
+            FileService::cleanOldFiles('./files/archivo_*.xml');
             // Crear XML para Moodle
             $xml = new DOMDocument('1.0', 'UTF-8');
             $xml->formatOutput = true;
@@ -116,7 +111,7 @@ class ConvertUtils{
 
     public function convertQuestions($preguntas, $nameFile = null){
         // Eliminar archivos antiguos
-        (new FileService())->cleanOldFiles('./files/archivo_*.xml');
+        FileService::cleanOldFiles('./files/archivo_*.xml');
         
         // Crear XML para Moodle
         $xml = new DOMDocument('1.0', 'UTF-8');
@@ -139,7 +134,7 @@ class ConvertUtils{
             }
         }
         if(!$nameFile){
-            $nameFile = (new FileService())->builderFile();
+            $nameFile = FileService::builderFile();
 
         }
         $xml->save($nameFile);
