@@ -5,7 +5,7 @@ namespace App\Converter;
 use App\Build\GitfBuild;
 use App\Build\XmlBuild;
 
-class FormatConvertet{
+class FormatConverter{
     public function convertIndicators($indicadoresData, $format = 'xml')
     {
         if (!$indicadoresData['success']) {
@@ -35,10 +35,10 @@ class FormatConvertet{
                 case 'txt':
                     $nombreArchivo .= '.txt';
                     $txtBuild = new GitfBuild();
-                    $cantidadPreguntas = $txtBuild->convertQuestions(
+                    /* $cantidadPreguntas = $txtBuild->convertQuestions(
                         $indicador['preguntas'], 
                         $nombreArchivo
-                    );
+                    ); */
                     break;
                     
                 default:

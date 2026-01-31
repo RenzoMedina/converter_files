@@ -12,7 +12,7 @@ class FormatParser{
         if ($old !== $text) {
             return 'old';
         }
-        if (preg_replace($new, "",$text)) {
+        if (preg_match($new,$text)) {
             return 'new';
         }
     }

@@ -22,7 +22,7 @@ function handleFileSelect() {
   if (fileInput.files && fileInput.files[0]) {
     const file = fileInput.files[0];
 
-    if (file.type === "application/pdf") {
+    if (file.type === "application/pdf" || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
       fileName.textContent = file.name;
       fileSize.textContent = formatFileSize(file.size);
 

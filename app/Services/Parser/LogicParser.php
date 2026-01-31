@@ -71,14 +71,9 @@ class LogicParser{
                 continue; // Saltar indicadores sin preguntas válidas
             }
 
-            // Generar archivo XML por indicador
-            /* $nombreArchivo = './files/indicador_' . $numIndicador . '_' . date('m_d_His') . '.xml';
-            $cantidadPreguntas = (new ConvertUtils())->convertQuestions($preguntasValidas, $nombreArchivo); */
-
             $resultados[] = [
                 'indicador' => $numIndicador,
                 'titulo' => $contenidoIndicador['titulo'],
-/*                 'archivo' => basename($nombreArchivo), */
                 'preguntas' => $preguntasValidas,
                 'cantidad' => count($preguntasValidas),
             ];
@@ -119,7 +114,7 @@ class LogicParser{
      * Procesa un bloque de pregunta y devuelve su estructura
      * @param mixed $bloque
      * @param mixed $matches
-     * @return array{numero: mixed, opciones: mixed, pregunta: string, retroalimentacion: string, tipo: mixed|null}
+     * @return array Array
      */
     private function processQuestion($bloque, $matches = null)
     {
@@ -163,7 +158,7 @@ class LogicParser{
     /**
      * Procesa un indicador y extrae sus preguntas
      * @param mixed $indicador
-     * @return array{numero: mixed, opciones: mixed, pregunta: string, retroalimentacion: string, tipo: mixed[]}
+     * @return array Array
      */
     private function processIndicator($indicador)
     {
@@ -202,7 +197,7 @@ class LogicParser{
     /**
      * Procesa un bloque de pregunta y devuelve su estructura
      * @param mixed $bloque
-     * @return array{numero: mixed, opciones: mixed, pregunta: string, retroalimentacion: string, tipo: mixed|null}
+     * @return array Array
      */
     private function processQuestionFromBlock($bloque)
     {
@@ -259,7 +254,7 @@ class LogicParser{
     /**
      * Extrae los indicadores y sus contenidos del texto
      * @param mixed $text
-     * @return array{contenido: string, titulo: string[]}
+     * @return array Array
      */
     private function extractIndicators($text)
     {

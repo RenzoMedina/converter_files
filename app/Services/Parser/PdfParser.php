@@ -2,8 +2,8 @@
 
 namespace App\Services\Parser;
 
-use App\Converter\FormatConvertet;
 use Smalot\PdfParser\Parser;
+use App\Converter\FormatConverter;
 use App\Interface\ParserInterface;
 
 class PdfParser implements ParserInterface{
@@ -11,10 +11,10 @@ class PdfParser implements ParserInterface{
     private $formatConverter;
     public function __construct(){
         $this->parser = new Parser();
-        $this->formatConverter = new FormatConvertet();
+        $this->formatConverter = new FormatConverter();
     }
 
-    private function extracText($path){
+    public function extracText($path){
         $pdf = $this->parser->parseFile($path);
         return $pdf->getText();
     }
@@ -29,8 +29,8 @@ class PdfParser implements ParserInterface{
     public function parser($type, $path) {
         $text = $this->extracText($path);
         return match ($type) {
-            'old' => new LogicParser()->transforOld($text),
-            'new' => new LogicParser()->transform($text),
+            'old' => (new LogicParser())->transforOld($text),
+            'new' => (new LogicParser())->transform($text),
             'indicators' => $this->parseIndicators($text, $path),
         };
     }

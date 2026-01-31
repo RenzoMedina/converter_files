@@ -4,7 +4,11 @@ namespace App\Controller;
 
 use App\Factory\ConverterFactory;
 use App\Factory\FormatFactory;
+use App\Factory\ParseFactory;
 use App\Services\Parser\ExtractFormatParser;
+use App\Services\Parser\FormatParser;
+use App\Services\Parser\PdfParser;
+use App\Services\Parser\WordParser;
 use Flight;
 use ZipArchive;
 use App\Services\ConvertService;
@@ -13,14 +17,22 @@ class ConvertController{
     public function convert(){
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
         $indicators = Flight::request()->data->indicador;
-         if($upload->getClientMediaType() != "application/pdf"){
+         /* if($upload->getClientMediaType() != "application/pdf"){
             Flight::redirect('/?error=formato-invalido');
             die;
-        } 
+        }  */
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
-          if($indicators == 'true'){
+            $extension = pathinfo($path, PATHINFO_EXTENSION );
+            $format = ParseFactory::make($extension);
+            $typeParser = $format->extracText($path);
+            Flight::json([
+                "format" => $extension,
+                "type" =>(new FormatParser())->format($typeParser),
+                "data" => $format->parser((new FormatParser())->format($typeParser), $path) 
+            ]);
+          /* if($indicators == 'true'){
                 try{
                 // Intentar con formato de indicadores
                     $resultado = (new ConvertService())->transformWithIndicators($path);
@@ -51,7 +63,7 @@ class ConvertController{
                     else{
                         Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
                     }
-            } 
+            }  */
            
         }
         if (file_exists($path)) {
