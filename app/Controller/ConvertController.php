@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Factory\ConverterFactory;
+use App\Factory\FormatFactory;
+use App\Services\Parser\ExtractFormatParser;
 use Flight;
 use ZipArchive;
 use App\Services\ConvertService;

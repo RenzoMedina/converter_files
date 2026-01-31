@@ -2,6 +2,10 @@
 
 namespace App\Services\Parser;
 
-class WordParser{
+use App\Interface\ParserInterface;
+
+class WordParser implements ParserInterface{
     
+    private function extracText($path){}
+    public function parser($type, $path){}
 }

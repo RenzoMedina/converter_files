@@ -12,8 +12,8 @@
 <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12">    
     <div class="max-w-4xl mx-auto px-6 py-8">
         <div class="">
-            <h1 class="text-4xl font-extrabold text-gray-900">Convertidor PDF a XML para Moodle</h1>
-            <p class="text-gray-600 mt-2">Convierta fácilmente sus documentos PDF a formato XML.</p>
+            <h1 class="text-4xl font-extrabold text-gray-900">Convertidor de PDF y Word a XML/GIFT para Moodle</h1>
+            <p class="text-gray-600 mt-2">Transforma fácilmente tus documentos en formatos compatibles con el banco de preguntas de Moodle.</p>
         </div>
     </div>
     <div class="max-w-4xl mx-auto px-6 py-12">
@@ -57,11 +57,18 @@
                         </button>
                     </div>
                     
-                    <input type="file" name="documentFile" id="document-file" accept=".pdf" required 
+                    <input type="file" name="documentFile" id="document-file" accept=".pdf, .doc, .docx" required 
                            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                 </div>
-                
                     <div class="mt-6 flex gap-4 justify-center flex-wrap">
+
+                        <div id="line-format" class="hidden inline-flex">
+                            <select id="output-format" class="hidden inline-flex bg-white text-gray-700 px-6 py-3 pr-10 rounded-lg font-semibold border-2 border-gray-300 transition-all duration-200 hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent cursor-pointer">
+                                <option value="xml">Formato XML</option>
+                                <option value="txt">Formato GIFT</option>
+                            </select>
+                        </div>
+
                         <button type="submit" id="btn-convert" class="hidden inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:shadow-lg">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M4 3C4.55228 3 5 3.44772 5 4V6.34298C6.64938 4.30446 9.17168 3 12 3C16.5903 3 20.3767 6.43564 20.9304 10.8763C20.9988 11.4243 20.6099 11.924 20.0618 11.9923C19.5138 12.0607 19.0141 11.6718 18.9458 11.1237C18.5153 7.67174 15.5689 5 12 5C9.62231 5 7.51998 6.18566 6.25442 8H9C9.55228 8 10 8.44772 10 9C10 9.55228 9.55228 10 9 10H4C3.44772 10 3 9.55228 3 9V4C3 3.44772 3.44772 3 4 3ZM3.93815 12.0077C4.48619 11.9393 4.98587 12.3282 5.05421 12.8763C5.48467 16.3283 8.43109 19 12 19C14.3777 19 16.48 17.8143 17.7456 16H15C14.4477 16 14 15.5523 14 15C14 14.4477 14.4477 14 15 14H20C20.5523 14 21 14.4477 21 15V20C21 20.5523 20.5523 21 20 21C19.4477 21 19 20.5523 19 20V17.657C17.3506 19.6955 14.8283 21 12 21C7.40967 21 3.62332 17.5644 3.06958 13.1237C3.00124 12.5757 3.39011 12.076 3.93815 12.0077Z" fill="white"/>
@@ -110,7 +117,7 @@
             </div>
             <h3 class="font-semibold text-gray-900">Carga fácil</h3>
             <p class="text-gray-600 text-sm mt-2">
-              Arrastra y suelta o haz clic para cargar tus archivos PDF
+              Arrastra y suelta o haz clic para cargar tus archivos
             </p>
           </div>
           <div class="text-center">
@@ -121,7 +128,7 @@
             </div>
             <h3 class="font-semibold text-gray-900">Conversión rápida</h3>
             <p class="text-gray-600 text-sm mt-2">
-             Conversión rápida y confiable de PDF a XML
+             Conversión rápida y confiable
             </p>
           </div>
           <div class="text-center">
@@ -130,9 +137,9 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
             </svg>
             </div>
-            <h3 class="font-semibold text-gray-900">Descargar XML</h3>
+            <h3 class="font-semibold text-gray-900">Descargar XML/GITF</h3>
             <p class="text-gray-600 text-sm mt-2">
-              Descarga tu archivo XML convertido al instante
+              Descarga tu archivo XML/GITF convertidos al instante
             </p>
           </div>
     </div>

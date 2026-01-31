@@ -7,6 +7,8 @@ const uploadContent = document.getElementById("upload-content");
 const fileSelectedContent = document.getElementById("file-selected-content");
 const fileName = document.getElementById("file-name");
 const fileSize = document.getElementById("file-size");
+const selectFormat = document.getElementById('output-format');
+const lineformat = document.getElementById("line-format");
 
 function formatFileSize(bytes) {
   if (bytes === 0) return "0 Bytes";
@@ -37,6 +39,8 @@ function handleFileSelect() {
 
       btnConvert.classList.remove("hidden");
       btnReset.classList.remove("hidden");
+      selectFormat.classList.remove("hidden");
+      lineformat.classList.remove("hidden");
     } else {
       alert("Por favor selecciona un archivo PDF");
       fileInput.value = "";
@@ -57,6 +61,8 @@ function resetView() {
   );
   btnConvert.classList.add("hidden");
   btnReset.classList.add("hidden");
+  selectFormat.classList.add("hidden");
+  lineformat.classList.add("hidden");
   fileInput.value = "";
 }
 
