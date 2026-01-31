@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Factory\BuildFactory;
 use App\Factory\ConverterFactory;
 use App\Factory\FormatFactory;
 use App\Factory\ParseFactory;
+use App\Services\FileService;
 use App\Services\Parser\ExtractFormatParser;
 use App\Services\Parser\FormatParser;
 use App\Services\Parser\PdfParser;
@@ -17,61 +19,69 @@ class ConvertController{
     public function convert(){
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
         $indicators = Flight::request()->data->indicador;
-         /* if($upload->getClientMediaType() != "application/pdf"){
+        $typeConverter = Flight::request()->data->typeformat;
+        $mediaType = $upload->getClientMediaType();
+        $validTypes = [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        ];
+        if(!in_array($mediaType, $validTypes)){
             Flight::redirect('/?error=formato-invalido');
             die;
-        }  */
+        }
         if ($upload->getError() === UPLOAD_ERR_OK) {
             $path = './files/'.$upload->getClientFilename();
             $upload->moveTo($path);
             $extension = pathinfo($path, PATHINFO_EXTENSION );
+
             $format = ParseFactory::make($extension);
             $typeParser = $format->extracText($path);
-            Flight::json([
-                "format" => $extension,
-                "type" =>(new FormatParser())->format($typeParser),
-                "data" => $format->parser((new FormatParser())->format($typeParser), $path) 
-            ]);
-          /* if($indicators == 'true'){
-                try{
-                // Intentar con formato de indicadores
-                    $resultado = (new ConvertService())->transformWithIndicators($path);
-                    
-                    if(isset($resultado['success']) && $resultado['success'] === true && $resultado['archivos_generados'] > 0){
-                        // Éxito con múltiples indicadores
-                        $totalPreguntas = array_sum(array_column($resultado['detalles'], 'cantidad'));
-                        Flight::redirect('/?success=1&indicadores='.$resultado['archivos_generados'].'&total='.$totalPreguntas);
-                    } else {
+            $typeBuild = BuildFactory::make($typeConverter);
+            $type = (new FormatParser())->format($typeParser);
+
+            if($indicators == 'true'){
+                try {
+                    $resultado = $format->parser('indicators', $path, $typeConverter);
+        
+                    if(!$resultado['success'] || $resultado['archivos_generados'] === 0){
                         throw new \Exception('No se encontraron indicadores');
-                    }    
-                } catch(\Exception $e) {
+                    }
+                    
+                    $totalPreguntas = array_sum(array_column($resultado['indicadores'], 'cantidad'));
+                    Flight::redirect('/?success=1&indicadores='.$resultado['archivos_generados'].'&total='.$totalPreguntas);
+                    
+                }catch(\Exception $e) {
+                    FileService::cleanGeneratedFiles();
                     Flight::redirect('/?error=no-preguntas-indicadores');
-               
                 }
-            }else{
-                 //primera formato
-                $textXML = (new ConvertService())->transform($path);
-                    if($textXML <= 0){
-                        //segundo formato
-                        $text = (new ConvertService())->transforOld($path);
-                        if($text <= 0){
-                            Flight::redirect('/?error=sin-preguntas');
-                        }else{
-                            Flight::redirect('/?success=1&total='.urlencode((string)$text));
-                        }
+            } else {
+                try{
+                    $preguntas = $format->parser($type, $path);
+                    if($preguntas === 0){
+                        Flight::redirect('/?error=sin-preguntas');
+                        return;
                     }
-                    else{
-                        Flight::redirect('/?success=1&total='.urlencode((string)$textXML));
-                    }
-            }  */
-           
+                    if ($type == "old"){
+                        $countQuestion = $typeBuild->multiChoicesOld($preguntas);
+                    } else if ($type == "new") {
+                        $countQuestion = $typeBuild->convertQuestions($preguntas);
+                    } 
+                Flight::redirect('/?success=1&total='.urlencode((string)$countQuestion));
+
+                }catch(\Exception $e) {
+                    FileService::cleanGeneratedFiles();
+                    Flight::redirect('/?error=sin-preguntas');
+                }
+                
+            } 
         }
         if (file_exists($path)) {
                 unlink($path);
             }
     }
    public function download(){
-         $files = glob('./files/*.xml');
+         $files = glob('./files/*');
         
         if(empty($files)){
             Flight::redirect('/?error=not-file');
@@ -126,7 +136,7 @@ class ConvertController{
 }
 
 private function downloadSingleFile($file){
-        $files = glob('./files/archivo_*.xml');
+        $files = glob('./files/*');
         usort($files, function($a, $b) {
             return filemtime($b) - filemtime($a);
         });

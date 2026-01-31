@@ -9,7 +9,7 @@ class ParseFactory{
     public static function make ($extension){
         return match (strtolower($extension)) {
             'pdf' => new PdfParser(),
-            'docx' => new WordParser(),
+            'doc','docx' => new WordParser(),
             default => throw new \InvalidArgumentException("Tipo de archivo no soportado: $extension")
         };
     }

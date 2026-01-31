@@ -35,10 +35,10 @@ class FormatConverter{
                 case 'txt':
                     $nombreArchivo .= '.txt';
                     $txtBuild = new GitfBuild();
-                    /* $cantidadPreguntas = $txtBuild->convertQuestions(
+                    $cantidadPreguntas = $txtBuild->convertQuestions(
                         $indicador['preguntas'], 
                         $nombreArchivo
-                    ); */
+                    ); 
                     break;
                     
                 default:
@@ -58,7 +58,7 @@ class FormatConverter{
             'success' => true,
             'archivos_generados' => count($resultados),
             'formato' => $format,
-            'detalles' => $resultados
+            'indicadores' => $resultados
         ];
     }
 }

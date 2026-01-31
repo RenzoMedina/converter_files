@@ -3,11 +3,15 @@
 namespace App\Services\Parser;
 
 use PhpOffice\PhpWord\IOFactory;
+use App\Converter\FormatConverter;
 use App\Interface\ParserInterface;
 use App\Services\Parser\LogicParser;
 
 class WordParser implements ParserInterface{
-    
+    private $formatConverter;
+    public function __construct(){
+        $this->formatConverter = new FormatConverter();
+    }
     public function extracText($path){
         $word = IOFactory::load($path);
         $text = '';
@@ -55,11 +59,20 @@ class WordParser implements ParserInterface{
         }
         return $text;
     }
-    public function parser($type, $path){
+    private function parseIndicators($text, $outputFormat){
+        $indicators = (new LogicParser())->transformWithIndicators($text);
+        if($outputFormat === 'data') {
+            return $indicators;
+        }
+        return $this->formatConverter->convertIndicators($indicators, $outputFormat);
+    }
+
+    public function parser($type, $path, $format = 'xml'){
         $text = $this->extracText($path);
         return match ($type) {
             'old' => (new LogicParser())->transforOld($text),
             'new' => (new LogicParser())->transform($text),
+            'indicators' => $this->parseIndicators($text, $format),
         };
     }
 }

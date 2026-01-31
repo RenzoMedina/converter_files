@@ -42,7 +42,7 @@ function handleFileSelect() {
       selectFormat.classList.remove("hidden");
       lineformat.classList.remove("hidden");
     } else {
-      alert("Por favor selecciona un archivo PDF");
+      showAlert("Por favor selecciona un archivo compatible, solo se acepta PDF o Word", 7000, "error");
       fileInput.value = "";
       resetView();
     }
@@ -180,8 +180,8 @@ const errorMsg = url.get("msg");
 
 if (errorType) {
   const mensajes = {
-    "sin-preguntas": "No se encontraron preguntas válidas en el PDF",
-    "formato-invalido": errorMsg || "El formato del PDF no es reconocido",
+    "sin-preguntas": "No se encontraron preguntas válidas en el documento",
+    "formato-invalido": errorMsg || "El formato del documento no es reconocido",
     "no-preguntas": "No se encontraron preguntas en el documento",
     "no-preguntas-indicadores":
       "No se encontraron preguntas en los indicadores",
@@ -191,7 +191,7 @@ if (errorType) {
     "error-zip": "Error al crear el archivo ZIP, por favor intenta de nuevo",
     "error-download":
       "Error al descargar el archivo, por favor intenta de nuevo",
-    fatal: errorMsg || "Ocurrió un error inesperado al procesar el PDF",
+    fatal: errorMsg || "Ocurrió un error inesperado al procesar el documento",
     default: errorMsg || "Ha ocurrido un error",
   };
 

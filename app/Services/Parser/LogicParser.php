@@ -82,7 +82,7 @@ class LogicParser{
         return [
             'success' => true,
             'archivos_generados' => count($resultados),
-            'detalles' => $resultados
+            'indicadores' => $resultados
         ];
     }
 

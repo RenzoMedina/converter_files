@@ -63,7 +63,7 @@
                     <div class="mt-6 flex gap-4 justify-center flex-wrap">
 
                         <div id="line-format" class="hidden inline-flex">
-                            <select id="output-format" class="hidden inline-flex bg-white text-gray-700 px-6 py-3 pr-10 rounded-lg font-semibold border-2 border-gray-300 transition-all duration-200 hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent cursor-pointer">
+                            <select id="output-format" name="typeformat" class="hidden inline-flex bg-white text-gray-700 px-6 py-3 pr-10 rounded-lg font-semibold border-2 border-gray-300 transition-all duration-200 hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent cursor-pointer">
                                 <option value="xml">Formato XML</option>
                                 <option value="txt">Formato GIFT</option>
                             </select>
@@ -94,7 +94,7 @@
                                 </svg>
                             </div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Conversión exitosa!</h3>
-                            <p class="text-gray-600 mb-6">Tu archivo XML ha sido generado correctamente</p>
+                            <p class="text-gray-600 mb-6">Tu archivo ha sido generado correctamente</p>
                             <a href="/download" class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-100 hover:bg-blue-600 hover:shadow-2xl">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17L19 16C19 15.4477 19.4477 15 20 15C20.5523 15 21 15.4477 21 16L21 17C21 19.2091 19.2091 21 17 21L7 21C4.79086 21 3 19.2091 3 17L3 16C3 15.4477 3.44771 15 4 15C4.55228 15 5 15.4477 5 16L5 17ZM7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858L11 4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4L13 13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929Z" fill="white"/>
