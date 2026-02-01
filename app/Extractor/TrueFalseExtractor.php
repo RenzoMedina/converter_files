@@ -18,7 +18,7 @@ class TrueFalseExtractor {
         if (isset($matches[1])) {
             $textAlternatives = trim($matches[1]);
 
-            $patterOptions = RegexUtils::EXTRACT_OPTION_TRUE_FALSE;
+            $patterOptions = RegexUtils::OPTIONS_TRUE_FALSE;
             preg_match_all($patterOptions, $textAlternatives, $optionMatches, PREG_SET_ORDER);
             foreach ($optionMatches as $opt) {
                 $word = $opt[1];

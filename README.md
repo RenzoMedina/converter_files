@@ -1,10 +1,10 @@
-# 🗂️ Convertidor PDF a XML para Moodle
+# 🗂️ Convertidor PDF a XML/GIFT para Moodle
 
-Proyecto modular en PHP para convertir archivos PDF a XML compatibles con Moodle. Diseñado para integrarse fácilmente en flujos CI/CD, con despliegue reproducible en Docker, monitoreo con supervisord 
+Proyecto modular en PHP para convertir archivos PDF a XML/GITF compatibles con Moodle. Diseñado para integrarse fácilmente en flujos CI/CD, con despliegue reproducible en Docker, monitoreo con supervisord 
 
 ## 🚀 Características
 
-- Conversión automática de archivos PDF a XML estructurado
+- Conversión automática de archivos PDF a XML/GIFT estructurado
 - Arquitectura modular con rutas definidas en PHP con FlightPHP
 - Contenedor Docker optimizado para entornos reproducibles
 - Supervisión de procesos con `supervisord`

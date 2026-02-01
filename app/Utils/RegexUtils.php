@@ -10,7 +10,7 @@ class RegexUtils
     public const QUESTION = '/N°\s*de\s+pregunta:\s*(\d+)\s*(.*?)\s*Retroalimentación:\s*(.*?)(?=N°\s*de\s+pregunta:|$)/s';
     public const EXTRACT_INDICATORS = '/Indicador\s+(\d+):\s*([^\n]*)/s';
     public const EXTRACT_OPTIONS_MULTICHOICES = '/Alternativas\s*(.*?)(?=Indicador\s+de\s+evaluación|Respuesta\s+correcta)/s';
-    public const OPTIONS_MULTICHOICES = '/([a-e])\)\s*([^\n]+)/';
+    public const OPTIONS_MULTICHOICES = '/([a-e])\)\s*(.*?)(?=\s*[a-e]\)|$)/s';
     public const EXTRACT_ESSAY = '/Escribe aquí tu respuesta/s';
     public const EXTRACT_OPTION_TRUE_FALSE = '/Verdadero\s+o\s+falso\s*(.*?)(?=Respuesta\s+correcta)/si';
     public const OPTIONS_TRUE_FALSE = '/([a-b])\)\s*([^\n]+)/';

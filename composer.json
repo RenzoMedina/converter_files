@@ -18,6 +18,7 @@
     "minimum-stability": "dev",
     "require": {
         "smalot/pdfparser": "dev-master",
-        "flightphp/core": "dev-master"
+        "flightphp/core": "dev-master",
+        "phpoffice/phpword": "dev-master"
     }
 }

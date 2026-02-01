@@ -7,6 +7,8 @@ const uploadContent = document.getElementById("upload-content");
 const fileSelectedContent = document.getElementById("file-selected-content");
 const fileName = document.getElementById("file-name");
 const fileSize = document.getElementById("file-size");
+const selectFormat = document.getElementById('output-format');
+const lineformat = document.getElementById("line-format");
 
 function formatFileSize(bytes) {
   if (bytes === 0) return "0 Bytes";
@@ -20,6 +22,7 @@ function handleFileSelect() {
   if (fileInput.files && fileInput.files[0]) {
     const file = fileInput.files[0];
 
+    /* || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" */
     if (file.type === "application/pdf") {
       fileName.textContent = file.name;
       fileSize.textContent = formatFileSize(file.size);
@@ -37,8 +40,10 @@ function handleFileSelect() {
 
       btnConvert.classList.remove("hidden");
       btnReset.classList.remove("hidden");
+/*       selectFormat.classList.remove("hidden");
+      lineformat.classList.remove("hidden"); */
     } else {
-      alert("Por favor selecciona un archivo PDF");
+      showAlert("Por favor selecciona un archivo compatible", 7000, "error");
       fileInput.value = "";
       resetView();
     }
@@ -57,6 +62,8 @@ function resetView() {
   );
   btnConvert.classList.add("hidden");
   btnReset.classList.add("hidden");
+/*   selectFormat.classList.add("hidden");
+  lineformat.classList.add("hidden"); */
   fileInput.value = "";
 }
 
@@ -174,8 +181,8 @@ const errorMsg = url.get("msg");
 
 if (errorType) {
   const mensajes = {
-    "sin-preguntas": "No se encontraron preguntas válidas en el PDF",
-    "formato-invalido": errorMsg || "El formato del PDF no es reconocido",
+    "sin-preguntas": "No se encontraron preguntas válidas en el documento",
+    "formato-invalido": errorMsg || "El formato del documento no es reconocido",
     "no-preguntas": "No se encontraron preguntas en el documento",
     "no-preguntas-indicadores":
       "No se encontraron preguntas en los indicadores",
@@ -185,7 +192,7 @@ if (errorType) {
     "error-zip": "Error al crear el archivo ZIP, por favor intenta de nuevo",
     "error-download":
       "Error al descargar el archivo, por favor intenta de nuevo",
-    fatal: errorMsg || "Ocurrió un error inesperado al procesar el PDF",
+    fatal: errorMsg || "Ocurrió un error inesperado al procesar el documento",
     default: errorMsg || "Ha ocurrido un error",
   };
 
