@@ -9,6 +9,7 @@ use App\Factory\ParseFactory;
 use App\Services\FileService;
 use App\Services\Parser\ExtractFormatParser;
 use App\Services\Parser\FormatParser;
+use App\Services\Parser\LogicParser;
 use App\Services\Parser\PdfParser;
 use App\Services\Parser\WordParser;
 use Flight;
@@ -23,8 +24,8 @@ class ConvertController{
         $mediaType = $upload->getClientMediaType();
         $validTypes = [
             'application/pdf',
-            'application/msword',
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            /* 'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' */
         ];
         if(!in_array($mediaType, $validTypes)){
             Flight::redirect('/?error=formato-invalido');
@@ -39,7 +40,7 @@ class ConvertController{
             $typeParser = $format->extracText($path);
             $typeBuild = BuildFactory::make($typeConverter);
             $type = (new FormatParser())->format($typeParser);
-
+            
             if($indicators == 'true'){
                 try {
                     $resultado = $format->parser('indicators', $path, $typeConverter);
@@ -74,11 +75,11 @@ class ConvertController{
                     Flight::redirect('/?error=sin-preguntas');
                 }
                 
-            } 
-        }
-        if (file_exists($path)) {
-                unlink($path);
             }
+        } 
+         if (file_exists($path)) {
+                unlink($path);
+            } 
     }
    public function download(){
          $files = glob('./files/*');

@@ -13,7 +13,7 @@ class GitfBuild implements BuildInterface{
         $this->gift = '';
         foreach($preguntas as $p){
 
-            $this->gift .= "// P{$p['numero']}\n";
+            $this->gift .= "::P{$p['numero']}::\n";
             $this->gift .= "{$p['pregunta']}\n";
             $this->gift .= "{\n";
 
@@ -69,17 +69,17 @@ class GitfBuild implements BuildInterface{
     }
     public function addMultiChoice($type, $quiz, $p){
 
-        $this->gift .= "// P{$p['numero']}\n";
+        $this->gift .= "::P{$p['numero']}::\n";
         $this->gift .= "{$p['pregunta']}\n";
         $this->gift .= "{\n";
 
         foreach($p['opciones'] as $letra => $opcion){
             $isCorrect = (strtolower($letra) === strtolower($p['respuesta']));
-            $prefix = $isCorrect ? '=' : '#';
+            $prefix = $isCorrect ? '=' : '~';
             $this->gift .= "    {$prefix}{$this->escapeGift($opcion)}";
 
             if($isCorrect && !empty($p['retroalimentacion'])){
-                $this->gift .= "\n    %%%Feedback%%%{$p['retroalimentacion']}";
+                $this->gift .= "%%%Feedback%%%{$p['retroalimentacion']}";
             }
 
             $this->gift .= "\n";
@@ -88,19 +88,26 @@ class GitfBuild implements BuildInterface{
         $this->gift .= "}\n\n";
     }
     public function addEssay($type, $quiz, $p){
-         $this->gift .= "// P{$p['numero']}\n";
-        $this->gift .= "{$p['pregunta']}\n";
-        $this->gift .= "{}\n\n";
+        $this->gift .= "::P{$p['numero']}::\n";
+         $this->gift .= "{$this->escapeGift($p['pregunta'])}\n";
+        /* $this->gift .= "{$p['pregunta']}\n"; */
+        if (!empty($p['retroalimentacion'])) {
+            $this->gift .= "{%%%Feedback%%%{$p['retroalimentacion']} }\n";
+        } else {
+             $this->gift .= "{ }\n";
+        }
+        $this->gift .= "\n\n";
     }
     public function addTrueOrFalse($type, $quiz, $p){
         $isTrue = ($p['respuesta'] === 'verdadero');
 
-        $this->gift .= "// P{$p['numero']}\n";
-        $this->gift .= "{$p['pregunta']}\n";
+        $this->gift .= "::P{$p['numero']}::\n";
+         $this->gift .= "{$this->escapeGift($p['pregunta'])}\n";
+        /* $this->gift .= "{$p['pregunta']}\n"; */
         $this->gift .= "{" . ($isTrue ? 'TRUE' : 'FALSE') . "}";
 
         if(!empty($p['retroalimentacion'])){
-            $this->gift .= "\n// Feedback: {$p['retroalimentacion']}";
+            $this->gift .= "%%%Feedback%%%{$p['retroalimentacion']}";
         }
 
         $this->gift .= "\n\n";

@@ -22,7 +22,8 @@ function handleFileSelect() {
   if (fileInput.files && fileInput.files[0]) {
     const file = fileInput.files[0];
 
-    if (file.type === "application/pdf" || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
+    /* || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" */
+    if (file.type === "application/pdf") {
       fileName.textContent = file.name;
       fileSize.textContent = formatFileSize(file.size);
 
@@ -39,10 +40,10 @@ function handleFileSelect() {
 
       btnConvert.classList.remove("hidden");
       btnReset.classList.remove("hidden");
-      selectFormat.classList.remove("hidden");
-      lineformat.classList.remove("hidden");
+/*       selectFormat.classList.remove("hidden");
+      lineformat.classList.remove("hidden"); */
     } else {
-      showAlert("Por favor selecciona un archivo compatible, solo se acepta PDF o Word", 7000, "error");
+      showAlert("Por favor selecciona un archivo compatible", 7000, "error");
       fileInput.value = "";
       resetView();
     }
@@ -61,8 +62,8 @@ function resetView() {
   );
   btnConvert.classList.add("hidden");
   btnReset.classList.add("hidden");
-  selectFormat.classList.add("hidden");
-  lineformat.classList.add("hidden");
+/*   selectFormat.classList.add("hidden");
+  lineformat.classList.add("hidden"); */
   fileInput.value = "";
 }
 
