@@ -5,6 +5,7 @@ RUN apk add --no-cache \
     supervisor \
     curl \
     git \
+    gd \
     unzip \
     zip \
     nodejs npm
@@ -15,6 +16,9 @@ RUN install-php-extensions \
     curl \
     mbstring \
     zip \
+    gd \
+    intl \
+    fileinfo \
     @composer
 
 RUN mkdir -p /var/log/nginx \
@@ -41,7 +45,7 @@ RUN mkdir -p /var/www/convert/files && \
     chmod -R 755 /var/www/convert && \
     chmod -R 777 /var/www/convert/files
 
-RUN composer install --no-dev --optimize-autoloader && npm install 
+RUN composer install --no-dev --optimize-autoloader --verbose && npm install --loglevel verbose
 
 EXPOSE 80
 
