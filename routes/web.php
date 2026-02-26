@@ -17,4 +17,7 @@ Flight::map('error', function(Throwable $e){
     FileService::cleanGeneratedFiles();
     Flight::render("500");
 });
+Flight::map('methodNotFound', function($method){
+    Flight::render("405");
+});
 Flight::start();
