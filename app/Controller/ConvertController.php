@@ -3,18 +3,11 @@
 namespace App\Controller;
 
 use App\Factory\BuildFactory;
-use App\Factory\ConverterFactory;
-use App\Factory\FormatFactory;
 use App\Factory\ParseFactory;
 use App\Services\FileService;
-use App\Services\Parser\ExtractFormatParser;
 use App\Services\Parser\FormatParser;
-use App\Services\Parser\LogicParser;
-use App\Services\Parser\PdfParser;
-use App\Services\Parser\WordParser;
 use Flight;
 use ZipArchive;
-use App\Services\ConvertService;
 
 class ConvertController{
     public function convert(){
@@ -53,8 +46,8 @@ class ConvertController{
                     Flight::redirect('/?success=1&indicadores='.$resultado['archivos_generados'].'&total='.$totalPreguntas);
                     
                 }catch(\Exception $e) {
-                    FileService::cleanGeneratedFiles();
                     Flight::redirect('/?error=no-preguntas-indicadores');
+                    FileService::cleanGeneratedFiles();
                 }
             } else {
                 try{
@@ -71,8 +64,8 @@ class ConvertController{
                 Flight::redirect('/?success=1&total='.urlencode((string)$countQuestion));
 
                 }catch(\Exception $e) {
-                    FileService::cleanGeneratedFiles();
                     Flight::redirect('/?error=sin-preguntas');
+                    FileService::cleanGeneratedFiles();
                 }
                 
             }
