@@ -3,7 +3,6 @@
 namespace App\Services\Parser;
 
 use App\Utils\RegexUtils;
-use App\Utils\ConvertUtils;
 use App\Services\CleanServices;
 use App\Extractor\EssayExtractor;
 use App\Utils\CleanQuestionUtils;
@@ -62,11 +61,12 @@ class LogicParser{
         $resultados = [];
 
         foreach ($indicadores as $numIndicador => $contenidoIndicador) {
-            $preguntas = $this->processIndicator($contenidoIndicador);
+            $resultado = $this->processIndicator($contenidoIndicador);
 
+            $preguntas = $resultado['preguntas'];
+            $fallidas = $resultado['fallidas'];
             // FILTRAR preguntas válidas usando la función común
             $preguntasValidas = CleanServices::filterValidQuestions($preguntas);
-
             if (empty($preguntasValidas)) {
                 continue; // Saltar indicadores sin preguntas válidas
             }
@@ -76,6 +76,7 @@ class LogicParser{
                 'titulo' => $contenidoIndicador['titulo'],
                 'preguntas' => $preguntasValidas,
                 'cantidad' => count($preguntasValidas),
+                'fallidas' => $fallidas,
             ];
         }
 
@@ -93,6 +94,7 @@ class LogicParser{
         preg_match_all($pattern, $textClean, $matches, PREG_SET_ORDER);
 
         $questions = [];
+        $fallidas = [];
         foreach ($matches as $m) {
             // Procesar cada bloque como pregunta individual
             $bloque = $m[0];
@@ -100,6 +102,8 @@ class LogicParser{
 
             if ($pregunta) {
                 $questions[] = $pregunta;
+            } else {
+                $fallidas[] = isset($m[1]) ? $m[1] : '?';
             }
         }
 
@@ -107,7 +111,10 @@ class LogicParser{
             return 0;
         }
 
-        return $questions;
+        return [
+            'preguntas' => $questions,
+            'fallidas' => $fallidas
+        ];
     }
 
     /**
@@ -168,7 +175,7 @@ class LogicParser{
         preg_match_all(RegexUtils::PROCCESS_INDICATORS, $contenido, $matches, PREG_OFFSET_CAPTURE);
 
         $preguntas = [];
-
+        $fallidas = [];
         for ($i = 0; $i < count($matches[0]); $i++) {
             $numeroPregunta = (int) $matches[1][$i][0];
             $inicioPregunta = $matches[0][$i][1];
@@ -188,10 +195,15 @@ class LogicParser{
 
             if ($pregunta) {
                 $preguntas[] = $pregunta;
+            }else {
+                $fallidas[] = $numeroPregunta;
             }
         }
 
-        return $preguntas;
+        return [
+            'preguntas' => $preguntas,
+            'fallidas' => $fallidas
+        ];
     }
 
     /**
@@ -199,7 +211,7 @@ class LogicParser{
      * @param mixed $bloque
      * @return array Array
      */
-    private function processQuestionFromBlock($bloque)
+    /* private function processQuestionFromBlock($bloque)
     {
         // Extraer componentes del bloque
         $pattern = RegexUtils::PROCCESS_IMPORT_BLOCK;
@@ -235,7 +247,7 @@ class LogicParser{
         }
 
         return $pregunta;
-    }
+    } */
 
     /**
      * Extrae la respuesta correcta del texto

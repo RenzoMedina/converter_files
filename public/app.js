@@ -153,6 +153,9 @@ const showAlert = (message, duration, type) => {
     info: `<svg class="w-6 h-6 icon-info" fill="currentColor" viewBox="0 0 20 20">
                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                </svg>`,
+    warning: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+              </svg>`,
   };
 
   alertIcon.innerHTML = icons[type];
@@ -181,11 +184,11 @@ const errorMsg = url.get("msg");
 
 if (errorType) {
   const mensajes = {
-    "sin-preguntas": "No se encontraron preguntas válidas en el documento",
+    "sin-preguntas": "No se encontraron preguntas válidas en el documento, ya que todas presentan problemas de formato o falta de información.",
     "formato-invalido": errorMsg || "El formato del documento no es reconocido",
-    "no-preguntas": "No se encontraron preguntas en el documento",
+    "no-preguntas": "No se encontraron preguntas en el documento, ya que todas presentan problemas de formato o falta de información.",
     "no-preguntas-indicadores":
-      "No se encontraron preguntas en los indicadores",
+      "No se encontraron preguntas en los indicadores, ya que todas presentan problemas de formato o falta de información.",
     procesamiento: errorMsg || "Error al procesar el archivo",
     "not-file":
       "El archivo no existe o no se pudo encontrar, vuelve a intentarlo",

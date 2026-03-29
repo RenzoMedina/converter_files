@@ -45,7 +45,7 @@ RUN mkdir -p /var/www/convert/files && \
     chmod -R 755 /var/www/convert && \
     chmod -R 777 /var/www/convert/files
 
-RUN composer install --no-dev --optimize-autoloader --verbose && npm install --loglevel verbose
+RUN composer install --no-dev --optimize-autoloader --verbose && npm install --loglevel verbose && npm run build
 
 EXPOSE 80
 

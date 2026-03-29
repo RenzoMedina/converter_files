@@ -85,7 +85,42 @@
                         </button>
                     </div>
                 </form>
+                
                 <?php if (isset($_GET['success'])): ?>
+                    <?php
+                    $noPreguntas = isset($_GET['fallidas']) ? $_GET['fallidas'] : '0'; 
+                    $fallidas = isset($_GET['fallidas_list']) ? $_GET['fallidas_list'] : '';
+                    $list_fallidas = $fallidas ? explode('|', $fallidas) : [];
+                    ?>
+                    <?php if ($noPreguntas > 0): ?>
+                    <div class="max-w-4xl mx-auto px-6 mt-4">
+                        <div class="bg-gradient-to-r from-orange-50 to-blue-50 rounded-2xl shadow-xl p-8 border-2 border-orange-200 text-center" >
+                             <h3 class="text-lg font-semibold text-orange-700 mb-4 ">
+                                ⚠️ <?php echo  $noPreguntas; ?> pregunta(s) no se procesaron
+                            </h3>
+                            <table class="min-w-full">
+                                <thead class="border-b border-orange-200">
+                                    <tr class="bg-orange-100">
+                                        <th scope="col" class="px-4 py-2 text-sm font-medium text-orange-700 text-center">Indicador</th>
+                                        <th scope="col" class="px-4 py-2 text-sm font-medium text-orange-700 text-center">Número de pregunta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($list_fallidas as $item):
+                                        $partes = explode(',', $item);
+                                        $indicador = $partes[0];
+                                        $numPregunta = $partes[1];
+                                        ?>
+                                        <tr class="border-b border-orange-200">
+                                            <td class="px-4 py-2 text-sm text-orange-700 text-center"><?php echo $indicador; ?></td>
+                                            <td class="px-4 py-2 text-sm text-orange-700 text-center"><?php echo $numPregunta; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                     <div class="max-w-4xl mx-auto px-6 mt-8">
                         <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl shadow-xl p-8 text-center border-2 border-green-200">
                             <div class="inline-flex items-center justify-center bg-white p-4 rounded-full shadow-lg mb-4">
