@@ -50,7 +50,8 @@ class FormatConverter{
                 'titulo' => $indicador['titulo'],
                 'archivo' => basename($nombreArchivo),
                 'cantidad' => $cantidadPreguntas,
-                'formato' => $format
+                'formato' => $format,
+                'fallidas' => $indicador['fallidas'] ?? [],
             ];
         }
 

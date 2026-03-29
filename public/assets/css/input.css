@@ -56,11 +56,22 @@
         border-color: #BFDBFE;
         color: #1E40AF; 
     }
-     .icon-error {
+    .alert-warning{
+        background-color: #FFFBEB;  
+        border-color: #FEF3C7;
+        color: #92400E; 
+    }
+    .icon-error {
         color: #DC2626;
     }
     
     .icon-success {
         color: #16A34A;
+    }
+    .icon-warning{
+        color: #D97706; 
+    }
+    .icon-info{
+        color: #2563EB;
     }
 }

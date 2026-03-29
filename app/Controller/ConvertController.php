@@ -11,6 +11,7 @@ use ZipArchive;
 
 class ConvertController{
     public function convert(){
+        FileService::cleanGeneratedFiles();
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
         $indicators = Flight::request()->data->indicador;
         $typeConverter = Flight::request()->data->typeformat;
@@ -37,32 +38,47 @@ class ConvertController{
             if($indicators == 'true'){
                 try {
                     $resultado = $format->parser('indicators', $path, $typeConverter);
-        
                     if(!$resultado['success'] || $resultado['archivos_generados'] === 0){
                         throw new \Exception('No se encontraron indicadores');
                     }
-                    
                     $totalPreguntas = array_sum(array_column($resultado['indicadores'], 'cantidad'));
-                    Flight::redirect('/?success=1&indicadores='.$resultado['archivos_generados'].'&total='.$totalPreguntas);
-                    
+                    $totalFallidas = 0;
+                    $todasFallidas = [];
+                    foreach ($resultado['indicadores'] as $indicador) {
+                        if (!empty($indicador['fallidas'])) {
+                            foreach($indicador['fallidas'] as $num){
+                                $todasFallidas[] = $indicador['indicador'] . ',' . $num;
+                            }
+                        }
+                    }
+                    $totalFallidas = array_sum(array_map(fn($ind) => count($ind['fallidas']), $resultado['indicadores']));
+                    Flight::redirect('/?success=1&indicadores='.$resultado['archivos_generados'].'&total='.$totalPreguntas.'&fallidas='.$totalFallidas.'&fallidas_list='.urlencode(implode('|', $todasFallidas)));
                 }catch(\Exception $e) {
                     Flight::redirect('/?error=no-preguntas-indicadores');
                     FileService::cleanGeneratedFiles();
                 }
             } else {
                 try{
-                    $preguntas = $format->parser($type, $path);
-                    if($preguntas === 0){
+                    $resultado = $format->parser($type, $path);
+                    if($resultado === 0){
                         Flight::redirect('/?error=sin-preguntas');
                         return;
+                    }
+                    if (is_array($resultado) && isset($resultado['preguntas'])) {
+                        $preguntas = $resultado['preguntas'];
+                        $fallidas = $resultado['fallidas'] ?? [];
+                    }else {
+                        $preguntas = $resultado;
+                        $fallidas = [];
                     }
                     if ($type == "old"){
                         $countQuestion = $typeBuild->multiChoicesOld($preguntas);
                     } else if ($type == "new") {
                         $countQuestion = $typeBuild->convertQuestions($preguntas);
-                    } 
-                Flight::redirect('/?success=1&total='.urlencode((string)$countQuestion));
-
+                    }
+                    $totalFallidas = count($fallidas);
+                    $fallidasList = implode('|', array_map(fn($f) => $f['indicador'] . ',' . $f['numPregunta'], $fallidas));
+                    Flight::redirect('/?success=1&total='.urlencode((string)$countQuestion).'&fallidas='.$totalFallidas.'&fallidas_list='.urlencode($fallidasList));
                 }catch(\Exception $e) {
                     Flight::redirect('/?error=sin-preguntas');
                     FileService::cleanGeneratedFiles();
