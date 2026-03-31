@@ -10,6 +10,11 @@ use App\Extractor\TrueFalseExtractor;
 use App\Extractor\MultichoiceExtractor;
 
 class LogicParser{
+    /**
+     * Transforma el texto del PDF en preguntas usando un patrón específico (versión antigua)
+     * @param mixed $text
+     * @return array{numero: mixed, opciones: array, pregunta: string, respuesta: string, retroalimentacion: string[]|int}
+     */
     public function transforOld($text){
         $text = preg_replace("/\r\n|\r/", "\n", $text);
         $text = preg_replace('/.*?plazos establecidos\.\s*/s', '', $text);
@@ -54,6 +59,12 @@ class LogicParser{
         }
         return $preguntas;
     }
+
+    /**
+     * Transforma el texto del PDF en preguntas, detectando indicadores y categorizando tipos de preguntas
+     * @param mixed $text
+     * @return array{archivos_generados: int, indicadores: array, success: bool}
+     */
     public function transformWithIndicators($text){
         // Dividir por indicadores
         $indicadores = $this->extractIndicators($text);
@@ -87,6 +98,11 @@ class LogicParser{
         ];
     }
 
+    /**
+     * Transforma el texto del PDF en preguntas, detectando indicadores y categorizando tipos de preguntas
+     * @param mixed $pdfText
+     * @return array{fallidas: array, preguntas: array|int}
+     */
     public function transform($pdfText){
         $textClean = CleanServices::fullText($pdfText);
         // Extraer preguntas usando el patrón original
@@ -123,8 +139,8 @@ class LogicParser{
      * @param mixed $matches
      * @return array Array
      */
-    private function processQuestion($bloque, $matches = null)
-    {
+    private function processQuestion($bloque, $matches = null) {
+        
         // Si no tenemos matches, extraerlos del bloque
         if ($matches === null) {
             $pattern = RegexUtils::PROCCESS_BLOCK;
