@@ -91,6 +91,7 @@
                     $noPreguntas = isset($_GET['fallidas']) ? $_GET['fallidas'] : '0'; 
                     $fallidas = isset($_GET['fallidas_list']) ? $_GET['fallidas_list'] : '';
                     $list_fallidas = $fallidas ? explode('|', $fallidas) : [];
+                    $tieneIndicadores = isset($_GET['indicadores']) && (int)$_GET['indicadores'] > 0;
                     ?>
                     <?php if ($noPreguntas > 0): ?>
                     <div class="max-w-4xl mx-auto px-6 mt-4">
@@ -101,18 +102,22 @@
                             <table class="min-w-full">
                                 <thead class="border-b border-orange-200">
                                     <tr class="bg-orange-100">
+                                        <?php if($tieneIndicadores): ?>
                                         <th scope="col" class="px-4 py-2 text-sm font-medium text-orange-700 text-center">Indicador</th>
+                                        <?php endif; ?>
                                         <th scope="col" class="px-4 py-2 text-sm font-medium text-orange-700 text-center">Número de pregunta</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($list_fallidas as $item):
                                         $partes = explode(',', $item);
-                                        $indicador = $partes[0];
-                                        $numPregunta = $partes[1];
+                                        $indicador = $partes[0] ?? 'N/A';
+                                        $numPregunta = $partes[1] ?? 'N/A';
                                         ?>
                                         <tr class="border-b border-orange-200">
+                                            <?php if($tieneIndicadores): ?>
                                             <td class="px-4 py-2 text-sm text-orange-700 text-center"><?php echo $indicador; ?></td>
+                                            <?php endif; ?>
                                             <td class="px-4 py-2 text-sm text-orange-700 text-center"><?php echo $numPregunta; ?></td>
                                         </tr>
                                     <?php endforeach; ?>

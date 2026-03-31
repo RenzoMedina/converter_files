@@ -10,6 +10,11 @@ use Flight;
 use ZipArchive;
 
 class ConvertController{
+    /**
+     * Maneja la conversión de archivos subidos por el usuario, extrayendo preguntas y generando archivos de salida.
+     * @throws \Exception
+     * @return void
+     */
     public function convert(){
         FileService::cleanGeneratedFiles();
         $upload = Flight::request()->getUploadedFiles()['documentFile'];
@@ -77,7 +82,7 @@ class ConvertController{
                         $countQuestion = $typeBuild->convertQuestions($preguntas);
                     }
                     $totalFallidas = count($fallidas);
-                    $fallidasList = implode('|', array_map(fn($f) => $f['indicador'] . ',' . $f['numPregunta'], $fallidas));
+                    $fallidasList = implode('|', array_map(fn($num) => '0,' . $num, $fallidas));
                     Flight::redirect('/?success=1&total='.urlencode((string)$countQuestion).'&fallidas='.$totalFallidas.'&fallidas_list='.urlencode($fallidasList));
                 }catch(\Exception $e) {
                     Flight::redirect('/?error=sin-preguntas');
@@ -90,7 +95,12 @@ class ConvertController{
                 unlink($path);
             } 
     }
-   public function download(){
+
+   /**
+    * Maneja la descarga de archivos generados, ya sea un único archivo o un ZIP con múltiples archivos, y limpia los archivos temporales después de la descarga.
+    * @return void
+    */
+    public function download() {
          $files = glob('./files/*');
         
         if(empty($files)){
@@ -143,30 +153,35 @@ class ConvertController{
         } else {
             Flight::redirect('/?error=error-download');
         }
-}
+    }
 
-private function downloadSingleFile($file){
-        $files = glob('./files/*');
-        usort($files, function($a, $b) {
-            return filemtime($b) - filemtime($a);
-        });
+    /**
+     * Maneja la descarga de un único archivo generado, ordenando los archivos por fecha de modificación para asegurar que se descargue el más reciente, y limpia el archivo después de la descarga.
+     * @param mixed $file
+     * @return void
+     */
+    private function downloadSingleFile($file) {
+            $files = glob('./files/*');
+            usort($files, function($a, $b) {
+                return filemtime($b) - filemtime($a);
+            });
 
-        $file = $files[0];
-        if (file_exists($file)) {
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="'.basename($file).'"');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            header('Content-Length: ' . filesize($file));
-            readfile($file);
-           
-            unlink($file);
-            exit;
-        } else {
-            Flight::redirect('/?error=not-file');
-        }
-}
+            $file = $files[0];
+            if (file_exists($file)) {
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename="'.basename($file).'"');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($file));
+                readfile($file);
+            
+                unlink($file);
+                exit;
+            } else {
+                Flight::redirect('/?error=not-file');
+            }
+    }
 
 }
