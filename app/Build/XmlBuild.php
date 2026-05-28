@@ -68,8 +68,8 @@ class XmlBuild implements BuildInterface{
                 $answernumbering = $xml->createElement('answernumbering', 'abc');
                 $question->appendChild($answernumbering);
                 
-                // puntaje por defecto a 0.5
-                $defaultgrade = $xml->createElement('defaultgrade', '0.5');
+                // puntaje por defecto a 1
+                $defaultgrade = $xml->createElement('defaultgrade', '1');
                 $question->appendChild($defaultgrade);
 
                 // No mostrar instrucción estándar
@@ -188,8 +188,8 @@ class XmlBuild implements BuildInterface{
         $answernumbering = $xml->createElement('answernumbering', 'abc');
         $question->appendChild($answernumbering);
         
-        // puntaje por defecto a 0.5
-        $defaultgrade = $xml->createElement('defaultgrade', '0.5');
+        // puntaje por defecto a 1
+        $defaultgrade = $xml->createElement('defaultgrade', '1');
         $question->appendChild($defaultgrade);
 
         // No mostrar instrucción estándar
@@ -251,8 +251,8 @@ class XmlBuild implements BuildInterface{
         $generalfeedback->appendChild($generalfeedbackText);
         $question->appendChild($generalfeedback);
         
-        // puntaje por defecto a 0.5
-        $defaultgrade = $xml->createElement('defaultgrade', '0.5');
+        // puntaje por defecto a 1
+        $defaultgrade = $xml->createElement('defaultgrade', '1');
         $question->appendChild($defaultgrade);
         
         // Penalización
@@ -334,8 +334,8 @@ class XmlBuild implements BuildInterface{
         $hidden = $xml->createElement('hidden', '0');
         $question->appendChild($hidden);
 
-        // puntaje por defecto a 0.5
-        $defaultgrade = $xml->createElement('defaultgrade', '0.5');
+        // puntaje por defecto a 1
+        $defaultgrade = $xml->createElement('defaultgrade', '1');
         $question->appendChild($defaultgrade);
         
         // Shuffle answers 
